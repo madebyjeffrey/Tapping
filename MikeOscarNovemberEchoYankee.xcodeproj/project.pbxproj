@@ -6,14 +6,204 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		7609D8AA13A6D3D0000C0C7B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7609D8A913A6D3D0000C0C7B /* Foundation.framework */; };
+		7609D8B213A6D3D0000C0C7B /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7609D8B013A6D3D0000C0C7B /* InfoPlist.strings */; };
+		7609D8B513A6D3D0000C0C7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8B413A6D3D0000C0C7B /* main.m */; };
+		7609D8B813A6D3D0000C0C7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8B713A6D3D0000C0C7B /* AppDelegate.m */; };
+		7609D8C313A6D66E000C0C7B /* BoardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8C213A6D66E000C0C7B /* BoardController.m */; };
+		7609D8C613A6D681000C0C7B /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8C513A6D681000C0C7B /* BoardView.m */; };
+		7609D8C813A6D6A9000C0C7B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7609D8C713A6D6A9000C0C7B /* QuartzCore.framework */; };
+		7609D8CA13A6D6C1000C0C7B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7609D8C913A6D6C1000C0C7B /* UIKit.framework */; };
+		7609D8CC13A6D6C6000C0C7B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7609D8CB13A6D6C6000C0C7B /* CoreGraphics.framework */; };
+		7609D8CF13A6ECD6000C0C7B /* Slice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8CE13A6ECD6000C0C7B /* Slice.m */; };
+		7609D8EC13A700E2000C0C7B /* apu_snapshot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8D913A700E2000C0C7B /* apu_snapshot.cpp */; };
+		7609D8ED13A700E2000C0C7B /* Blip_Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8DD13A700E2000C0C7B /* Blip_Buffer.cpp */; };
+		7609D8EE13A700E2000C0C7B /* Multi_Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8E013A700E2000C0C7B /* Multi_Buffer.cpp */; };
+		7609D8EF13A700E2000C0C7B /* Nes_Apu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8E213A700E2000C0C7B /* Nes_Apu.cpp */; };
+		7609D8F013A700E2000C0C7B /* Nes_Namco.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8E413A700E2000C0C7B /* Nes_Namco.cpp */; };
+		7609D8F113A700E2000C0C7B /* Nes_Oscs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8E613A700E2000C0C7B /* Nes_Oscs.cpp */; };
+		7609D8F213A700E2000C0C7B /* Nes_Vrc6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8E813A700E2000C0C7B /* Nes_Vrc6.cpp */; };
+		7609D8F313A700E2000C0C7B /* Nonlinear_Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8EA13A700E2000C0C7B /* Nonlinear_Buffer.cpp */; };
+		7609D90213A936A8000C0C7B /* Board-Events.m in Sources */ = {isa = PBXBuildFile; fileRef = 7609D90013A936A7000C0C7B /* Board-Events.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7609D8A313A6D3D0000C0C7B /* MikeOscarNovemberEchoYankee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MikeOscarNovemberEchoYankee.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7609D8A913A6D3D0000C0C7B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		7609D8AF13A6D3D0000C0C7B /* MikeOscarNovemberEchoYankee-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MikeOscarNovemberEchoYankee-Info.plist"; sourceTree = "<group>"; };
+		7609D8B113A6D3D0000C0C7B /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7609D8B313A6D3D0000C0C7B /* MikeOscarNovemberEchoYankee-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MikeOscarNovemberEchoYankee-Prefix.pch"; sourceTree = "<group>"; };
+		7609D8B413A6D3D0000C0C7B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		7609D8B613A6D3D0000C0C7B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		7609D8B713A6D3D0000C0C7B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		7609D8C113A6D66E000C0C7B /* BoardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardController.h; sourceTree = "<group>"; };
+		7609D8C213A6D66E000C0C7B /* BoardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardController.m; sourceTree = "<group>"; };
+		7609D8C413A6D681000C0C7B /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoardView.h; path = MikeOscarNovemberEchoYankee.xcodeproj/BoardView.h; sourceTree = SOURCE_ROOT; };
+		7609D8C513A6D681000C0C7B /* BoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoardView.m; path = MikeOscarNovemberEchoYankee.xcodeproj/BoardView.m; sourceTree = SOURCE_ROOT; };
+		7609D8C713A6D6A9000C0C7B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		7609D8C913A6D6C1000C0C7B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		7609D8CB13A6D6C6000C0C7B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		7609D8CD13A6ECD6000C0C7B /* Slice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slice.h; sourceTree = "<group>"; };
+		7609D8CE13A6ECD6000C0C7B /* Slice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slice.m; sourceTree = "<group>"; };
+		7609D8D913A700E2000C0C7B /* apu_snapshot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = apu_snapshot.cpp; sourceTree = "<group>"; };
+		7609D8DA13A700E2000C0C7B /* apu_snapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = apu_snapshot.h; sourceTree = "<group>"; };
+		7609D8DB13A700E2000C0C7B /* blargg_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blargg_common.h; sourceTree = "<group>"; };
+		7609D8DC13A700E2000C0C7B /* blargg_source.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blargg_source.h; sourceTree = "<group>"; };
+		7609D8DD13A700E2000C0C7B /* Blip_Buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Blip_Buffer.cpp; sourceTree = "<group>"; };
+		7609D8DE13A700E2000C0C7B /* Blip_Buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blip_Buffer.h; sourceTree = "<group>"; };
+		7609D8DF13A700E2000C0C7B /* Blip_Synth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blip_Synth.h; sourceTree = "<group>"; };
+		7609D8E013A700E2000C0C7B /* Multi_Buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Multi_Buffer.cpp; sourceTree = "<group>"; };
+		7609D8E113A700E2000C0C7B /* Multi_Buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Multi_Buffer.h; sourceTree = "<group>"; };
+		7609D8E213A700E2000C0C7B /* Nes_Apu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Nes_Apu.cpp; sourceTree = "<group>"; };
+		7609D8E313A700E2000C0C7B /* Nes_Apu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nes_Apu.h; sourceTree = "<group>"; };
+		7609D8E413A700E2000C0C7B /* Nes_Namco.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Nes_Namco.cpp; sourceTree = "<group>"; };
+		7609D8E513A700E2000C0C7B /* Nes_Namco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nes_Namco.h; sourceTree = "<group>"; };
+		7609D8E613A700E2000C0C7B /* Nes_Oscs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Nes_Oscs.cpp; sourceTree = "<group>"; };
+		7609D8E713A700E2000C0C7B /* Nes_Oscs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nes_Oscs.h; sourceTree = "<group>"; };
+		7609D8E813A700E2000C0C7B /* Nes_Vrc6.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Nes_Vrc6.cpp; sourceTree = "<group>"; };
+		7609D8E913A700E2000C0C7B /* Nes_Vrc6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nes_Vrc6.h; sourceTree = "<group>"; };
+		7609D8EA13A700E2000C0C7B /* Nonlinear_Buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Nonlinear_Buffer.cpp; sourceTree = "<group>"; };
+		7609D8EB13A700E2000C0C7B /* Nonlinear_Buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nonlinear_Buffer.h; sourceTree = "<group>"; };
+		7609D8F513A70111000C0C7B /* config.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = config.hpp; sourceTree = "<group>"; };
+		7609D8F613A70111000C0C7B /* cstdint.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cstdint.hpp; sourceTree = "<group>"; };
+		7609D8F713A70111000C0C7B /* static_assert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = static_assert.hpp; sourceTree = "<group>"; };
+		7609D90013A936A7000C0C7B /* Board-Events.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Board-Events.m"; sourceTree = "<group>"; };
+		7609D90113A936A7000C0C7B /* Board-Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Board-Events.h"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7609D8A013A6D3D0000C0C7B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7609D8CC13A6D6C6000C0C7B /* CoreGraphics.framework in Frameworks */,
+				7609D8CA13A6D6C1000C0C7B /* UIKit.framework in Frameworks */,
+				7609D8AA13A6D3D0000C0C7B /* Foundation.framework in Frameworks */,
+				7609D8C813A6D6A9000C0C7B /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
 /* Begin PBXGroup section */
+		7609D8A413A6D3D0000C0C7B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7609D8A313A6D3D0000C0C7B /* MikeOscarNovemberEchoYankee.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7609D8A613A6D3D0000C0C7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7609D8CB13A6D6C6000C0C7B /* CoreGraphics.framework */,
+				7609D8C913A6D6C1000C0C7B /* UIKit.framework */,
+				7609D8C713A6D6A9000C0C7B /* QuartzCore.framework */,
+				7609D8A913A6D3D0000C0C7B /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7609D8AD13A6D3D0000C0C7B /* MikeOscarNovemberEchoYankee */ = {
+			isa = PBXGroup;
+			children = (
+				7609D8CD13A6ECD6000C0C7B /* Slice.h */,
+				7609D8CE13A6ECD6000C0C7B /* Slice.m */,
+				7609D8C113A6D66E000C0C7B /* BoardController.h */,
+				7609D8C213A6D66E000C0C7B /* BoardController.m */,
+				7609D8C413A6D681000C0C7B /* BoardView.h */,
+				7609D8C513A6D681000C0C7B /* BoardView.m */,
+				7609D90113A936A7000C0C7B /* Board-Events.h */,
+				7609D90013A936A7000C0C7B /* Board-Events.m */,
+				7609D8B613A6D3D0000C0C7B /* AppDelegate.h */,
+				7609D8B713A6D3D0000C0C7B /* AppDelegate.m */,
+				7609D8AE13A6D3D0000C0C7B /* Supporting Files */,
+			);
+			path = MikeOscarNovemberEchoYankee;
+			sourceTree = "<group>";
+		};
+		7609D8AE13A6D3D0000C0C7B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				7609D8F413A70111000C0C7B /* boost */,
+				7609D8D813A700C4000C0C7B /* Nintendo Sound */,
+				7609D8AF13A6D3D0000C0C7B /* MikeOscarNovemberEchoYankee-Info.plist */,
+				7609D8B013A6D3D0000C0C7B /* InfoPlist.strings */,
+				7609D8B313A6D3D0000C0C7B /* MikeOscarNovemberEchoYankee-Prefix.pch */,
+				7609D8B413A6D3D0000C0C7B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7609D8D813A700C4000C0C7B /* Nintendo Sound */ = {
+			isa = PBXGroup;
+			children = (
+				7609D8D913A700E2000C0C7B /* apu_snapshot.cpp */,
+				7609D8DA13A700E2000C0C7B /* apu_snapshot.h */,
+				7609D8DB13A700E2000C0C7B /* blargg_common.h */,
+				7609D8DC13A700E2000C0C7B /* blargg_source.h */,
+				7609D8DD13A700E2000C0C7B /* Blip_Buffer.cpp */,
+				7609D8DE13A700E2000C0C7B /* Blip_Buffer.h */,
+				7609D8DF13A700E2000C0C7B /* Blip_Synth.h */,
+				7609D8E013A700E2000C0C7B /* Multi_Buffer.cpp */,
+				7609D8E113A700E2000C0C7B /* Multi_Buffer.h */,
+				7609D8E213A700E2000C0C7B /* Nes_Apu.cpp */,
+				7609D8E313A700E2000C0C7B /* Nes_Apu.h */,
+				7609D8E413A700E2000C0C7B /* Nes_Namco.cpp */,
+				7609D8E513A700E2000C0C7B /* Nes_Namco.h */,
+				7609D8E613A700E2000C0C7B /* Nes_Oscs.cpp */,
+				7609D8E713A700E2000C0C7B /* Nes_Oscs.h */,
+				7609D8E813A700E2000C0C7B /* Nes_Vrc6.cpp */,
+				7609D8E913A700E2000C0C7B /* Nes_Vrc6.h */,
+				7609D8EA13A700E2000C0C7B /* Nonlinear_Buffer.cpp */,
+				7609D8EB13A700E2000C0C7B /* Nonlinear_Buffer.h */,
+			);
+			name = "Nintendo Sound";
+			sourceTree = "<group>";
+		};
+		7609D8F413A70111000C0C7B /* boost */ = {
+			isa = PBXGroup;
+			children = (
+				7609D8F513A70111000C0C7B /* config.hpp */,
+				7609D8F613A70111000C0C7B /* cstdint.hpp */,
+				7609D8F713A70111000C0C7B /* static_assert.hpp */,
+			);
+			path = boost;
+			sourceTree = "<group>";
+		};
 		7623190513A6D2B4004BF0E3 = {
 			isa = PBXGroup;
 			children = (
+				7609D8AD13A6D3D0000C0C7B /* MikeOscarNovemberEchoYankee */,
+				7609D8A613A6D3D0000C0C7B /* Frameworks */,
+				7609D8A413A6D3D0000C0C7B /* Products */,
 			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7609D8A213A6D3D0000C0C7B /* MikeOscarNovemberEchoYankee */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7609D8BE13A6D3D0000C0C7B /* Build configuration list for PBXNativeTarget "MikeOscarNovemberEchoYankee" */;
+			buildPhases = (
+				7609D89F13A6D3D0000C0C7B /* Sources */,
+				7609D8A013A6D3D0000C0C7B /* Frameworks */,
+				7609D8A113A6D3D0000C0C7B /* Resources */,
+				7609D8C013A6D3F0000C0C7B /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MikeOscarNovemberEchoYankee;
+			productName = MikeOscarNovemberEchoYankee;
+			productReference = 7609D8A313A6D3D0000C0C7B /* MikeOscarNovemberEchoYankee.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		7623190713A6D2B4004BF0E3 /* Project object */ = {
@@ -29,14 +219,132 @@
 				en,
 			);
 			mainGroup = 7623190513A6D2B4004BF0E3;
+			productRefGroup = 7609D8A413A6D3D0000C0C7B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				7609D8A213A6D3D0000C0C7B /* MikeOscarNovemberEchoYankee */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		7609D8A113A6D3D0000C0C7B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7609D8B213A6D3D0000C0C7B /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7609D8C013A6D3F0000C0C7B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export CODESIGN_ALLOCATE=/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ]; then\n/usr/local/bin/gen_entitlements.py \"com.iaefai.DigiBellum\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Pwned Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7609D89F13A6D3D0000C0C7B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7609D8B513A6D3D0000C0C7B /* main.m in Sources */,
+				7609D8B813A6D3D0000C0C7B /* AppDelegate.m in Sources */,
+				7609D8C313A6D66E000C0C7B /* BoardController.m in Sources */,
+				7609D8C613A6D681000C0C7B /* BoardView.m in Sources */,
+				7609D8CF13A6ECD6000C0C7B /* Slice.m in Sources */,
+				7609D8EC13A700E2000C0C7B /* apu_snapshot.cpp in Sources */,
+				7609D8ED13A700E2000C0C7B /* Blip_Buffer.cpp in Sources */,
+				7609D8EE13A700E2000C0C7B /* Multi_Buffer.cpp in Sources */,
+				7609D8EF13A700E2000C0C7B /* Nes_Apu.cpp in Sources */,
+				7609D8F013A700E2000C0C7B /* Nes_Namco.cpp in Sources */,
+				7609D8F113A700E2000C0C7B /* Nes_Oscs.cpp in Sources */,
+				7609D8F213A700E2000C0C7B /* Nes_Vrc6.cpp in Sources */,
+				7609D8F313A700E2000C0C7B /* Nonlinear_Buffer.cpp in Sources */,
+				7609D90213A936A8000C0C7B /* Board-Events.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7609D8B013A6D3D0000C0C7B /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7609D8B113A6D3D0000C0C7B /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		7609D8BC13A6D3D0000C0C7B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				CODE_SIGN_IDENTITY = "iPhone Pwned Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Pwned Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MikeOscarNovemberEchoYankee/MikeOscarNovemberEchoYankee-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "MikeOscarNovemberEchoYankee/MikeOscarNovemberEchoYankee-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		7609D8BD13A6D3D0000C0C7B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
+				CODE_SIGN_IDENTITY = "iPhone Pwned Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Pwned Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MikeOscarNovemberEchoYankee/MikeOscarNovemberEchoYankee-Prefix.pch";
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "MikeOscarNovemberEchoYankee/MikeOscarNovemberEchoYankee-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				RUN_CLANG_STATIC_ANALYZER = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 		7623190C13A6D2B4004BF0E3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -52,6 +360,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		7609D8BE13A6D3D0000C0C7B /* Build configuration list for PBXNativeTarget "MikeOscarNovemberEchoYankee" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7609D8BC13A6D3D0000C0C7B /* Debug */,
+				7609D8BD13A6D3D0000C0C7B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		7623190A13A6D2B4004BF0E3 /* Build configuration list for PBXProject "MikeOscarNovemberEchoYankee" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
