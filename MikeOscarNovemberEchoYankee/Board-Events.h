@@ -15,5 +15,9 @@
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event;
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event;
 
+- (BOOL) isInsideSlice: (UITouch*) touch;
 - (int) insideButton: (CGPoint) p;
+
+- (void) updateSlices;
+
 @end

@@ -27,101 +27,98 @@
     return -1; // @throw ist verboten!
 }
 
-
-
-// does not use the above function yet
-- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-    int i = 0;
-    
+- (BOOL) isInsideSlice: (UITouch*) touch {
     CGAffineTransform centre = CGAffineTransformMakeTranslation(self.bounds.size.width / 2, self.bounds.size.height / 2);
     
-    for (UITouch *touch in touches) {
-        CGPoint p = [touch locationInView: self];
+    for (CAShapeLayer *shape in self.slices) {
+        UIBezierPath *path = [UIBezierPath bezierPathWithCGPath: shape.path];
+        [path applyTransform: centre];
         
-        for (i = 0; i < 6; i++) {
-            CAShapeLayer *shape = [self.slices objectAtIndex: i];
-            
-            UIBezierPath *path = [UIBezierPath bezierPathWithCGPath: shape.path];
-            [path applyTransform: centre];
-            
-            if ([path containsPoint: p] == YES) {
-                if (self.delegate != nil) {
-                    TrackedLocation *loc = [TrackedLocation location];
-                    loc.location = p;
-                    loc.button = i;
-                    
-                    [self.trackedTouches addObject: loc];
-                    
-                    [self.delegate sliceTouched: i];
-                }
-            }
+        if ([path containsPoint: [touch locationInView: self]] == YES) {
+            return YES;
         }
     }
+    
+    return NO;
+}
+
+/*
+ *  If the touch starts on a slice, then it will be tracked. Otherwise ignored.
+ *
+ *  When the touch ends or is cancelled its tracking/ignoring is over.
+ *
+ *  After all of these events the slices are updated to their state.
+ */
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+    // touches over a button go in trackedTouches others in ignoredTouches
+    
+    for (UITouch *touch in touches) {
+        if ([self isInsideSlice: touch] == YES)
+            [self.trackedTouches addObject: touch];
+        else
+            [self.ignoredTouches addObject: touch];
+    }
+    
+    [self updateSlices];
 }    
 
 - (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSMutableArray *changedTouches = [NSMutableArray arrayWithCapacity: 3];
-    
-    // find moved touches that we are tracking, and update them
-    for (UITouch *touch in touches) {
-        for (int i = 0; i < [self.trackedTouches count]; i++) {
-            TrackedLocation *location = [self.trackedTouches objectAtIndex: i];
-            
-            if (CGPointEqualToPoint([touch previousLocationInView: self], location.location) == YES) {
-                location.location = [touch locationInView: self];
-                [changedTouches addObject: location];
-            }
-        }
-    }
-    
-    // if moved touch is in a new button send message
-    for (TrackedLocation *location in changedTouches) {
-        int button = [self insideButton: location.location];
-        
-        // no change
-        if (button == location.button)
-            continue;   
-        // not inside a button
-        else if (button == -1) {
-            [self.delegate sliceUntouched: location.button];
-            location.button = -1;
-        }   // now inside of a button
-        else {
-            [self.delegate sliceTouched: button];
-            location.button = button;
-        }
-    }
+    [self updateSlices];
 }
 
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-    NSMutableArray *changedTouches = [NSMutableArray arrayWithCapacity: 3];
-    
-    // Find the touches we are tracking that are done
+    //
     for (UITouch *touch in touches) {
-        for (int i = 0; i < [self.trackedTouches count]; i++) {
-            TrackedLocation *location = [self.trackedTouches objectAtIndex: i];
-            
-            if (CGPointEqualToPoint([touch previousLocationInView: self], location.location) == YES) {
-                location.location = [touch previousLocationInView: self];
-                [changedTouches addObject: location];
-            }
-            [self.trackedTouches removeObject: location];            
-        }    
+        [self.trackedTouches removeObject: touch];
+        [self.ignoredTouches removeObject: touch];
     }
     
-    // Send out signals
-    for (TrackedLocation *location in changedTouches) {
-        int button = [self insideButton: location.location];
-        
-        if (button != -1)
-            [self.delegate sliceUntouched: button];
-        
-    }
-    
+    [self updateSlices];
 }
 
 - (void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+    for (UITouch *touch in touches) {
+        [self.trackedTouches removeObject: touch];
+        [self.ignoredTouches removeObject: touch];
+    }
     
+    [self updateSlices];
 }
 
+- (void) updateSlices {
+    // determines what has changed, and sends events
+    
+    NSMutableArray *sliceChanges = [NSMutableArray arrayWithCapacity: 6];
+    
+    int i;
+    
+    for (i = 0; i < 6; i++) {
+        [sliceChanges addObject: [NSNumber numberWithBool: NO]];
+    }
+    
+    for (UITouch *touch in self.trackedTouches) {
+        CGPoint p = [touch locationInView: self];
+        
+        int button = [self insideButton: p];
+        
+        if (button != -1) {
+            [sliceChanges replaceObjectAtIndex: button withObject: [NSNumber numberWithBool: YES]];
+        }
+    }
+    
+    
+    for (i = 0; i< 6; i++) {
+        if ([sliceChanges objectAtIndex: i] == [NSNumber numberWithBool: YES]) {
+            [self setButtonPressed: i];
+            [self.delegate sliceTouched: i];
+        }
+        else {
+            [self setButtonNormal: i];
+            [self.delegate sliceUntouched: i];
+        }
+    }
+    
+    NSLog(@"Number of items in array: %d, %d", [self.trackedTouches count], [self.ignoredTouches count]);
+}
 @end

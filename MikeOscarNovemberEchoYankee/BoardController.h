@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 #import "BoardView.h"
+#import "AudioKit.h"
+#import "AKAudio.h"
 
 @interface BoardController : UIViewController <BoardDelegate>{
     
@@ -18,4 +20,6 @@
 
 - (void) sliceTouched: (int) n;
 
+@property (retain) AKAudio *audioFile;
+@property (retain) AKManager *kit;
 @end

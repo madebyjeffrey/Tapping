@@ -11,13 +11,20 @@
 
 @implementation BoardController
 
-@synthesize board;
+@synthesize board, audioFile, kit;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        kit = [[[AKManager alloc] init] autorelease];
+        audioFile = [[[AKAudio alloc] init] autorelease];
+        
+        NSBundle *bundle = [NSBundle mainBundle];
+        
+        [audioFile openAudioWithPath: [bundle pathForResource: @"cowbell" ofType: @"caf"]];
+        [audioFile buffer];
+        [audioFile source];
     }
     return self;
 }
@@ -46,17 +53,20 @@
     
     [self.board setDelegate: self];
     
+    self.view.layer.contents = (id)[UIImage imageNamed: @"MosaicTexture.png"].CGImage;
+    
     
 }
 
 - (void) sliceTouched: (int) n {
     NSLog(@"Slice %d touched", n);
-    
-    [self.board setButtonPressed: n];
+  
+    [audioFile play];
+//    [self.board setButtonPressed: n];
 }
 
 - (void) sliceUntouched: (int) n {
-    [self.board setButtonNormal: n];
+//    [self.board setButtonNormal: n];
 }
 
 /*

@@ -17,15 +17,13 @@
 		7609D8CA13A6D6C1000C0C7B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7609D8C913A6D6C1000C0C7B /* UIKit.framework */; };
 		7609D8CC13A6D6C6000C0C7B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7609D8CB13A6D6C6000C0C7B /* CoreGraphics.framework */; };
 		7609D8CF13A6ECD6000C0C7B /* Slice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8CE13A6ECD6000C0C7B /* Slice.m */; };
-		7609D8EC13A700E2000C0C7B /* apu_snapshot.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8D913A700E2000C0C7B /* apu_snapshot.cpp */; };
-		7609D8ED13A700E2000C0C7B /* Blip_Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8DD13A700E2000C0C7B /* Blip_Buffer.cpp */; };
-		7609D8EE13A700E2000C0C7B /* Multi_Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8E013A700E2000C0C7B /* Multi_Buffer.cpp */; };
-		7609D8EF13A700E2000C0C7B /* Nes_Apu.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8E213A700E2000C0C7B /* Nes_Apu.cpp */; };
-		7609D8F013A700E2000C0C7B /* Nes_Namco.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8E413A700E2000C0C7B /* Nes_Namco.cpp */; };
-		7609D8F113A700E2000C0C7B /* Nes_Oscs.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8E613A700E2000C0C7B /* Nes_Oscs.cpp */; };
-		7609D8F213A700E2000C0C7B /* Nes_Vrc6.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8E813A700E2000C0C7B /* Nes_Vrc6.cpp */; };
-		7609D8F313A700E2000C0C7B /* Nonlinear_Buffer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8EA13A700E2000C0C7B /* Nonlinear_Buffer.cpp */; };
 		7609D90213A936A8000C0C7B /* Board-Events.m in Sources */ = {isa = PBXBuildFile; fileRef = 7609D90013A936A7000C0C7B /* Board-Events.m */; };
+		769F4B6213AE902800384C14 /* MosaicTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 769F4B6113AE902800384C14 /* MosaicTexture.png */; };
+		769F4B7713AEB37600384C14 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769F4B7613AEB37600384C14 /* OpenAL.framework */; };
+		769F4B8113AEBF0400384C14 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769F4B8013AEBF0400384C14 /* AudioToolbox.framework */; };
+		769F4B8513AEBF3800384C14 /* AudioKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 769F4B8413AEBF3800384C14 /* AudioKit.m */; };
+		769F4B8813AECC0E00384C14 /* AKAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 769F4B8713AECC0E00384C14 /* AKAudio.m */; };
+		769F4B8A13AEE13800384C14 /* cowbell.caf in Resources */ = {isa = PBXBuildFile; fileRef = 769F4B8913AEE13800384C14 /* cowbell.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,30 +44,16 @@
 		7609D8CB13A6D6C6000C0C7B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
 		7609D8CD13A6ECD6000C0C7B /* Slice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Slice.h; sourceTree = "<group>"; };
 		7609D8CE13A6ECD6000C0C7B /* Slice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slice.m; sourceTree = "<group>"; };
-		7609D8D913A700E2000C0C7B /* apu_snapshot.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = apu_snapshot.cpp; sourceTree = "<group>"; };
-		7609D8DA13A700E2000C0C7B /* apu_snapshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = apu_snapshot.h; sourceTree = "<group>"; };
-		7609D8DB13A700E2000C0C7B /* blargg_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blargg_common.h; sourceTree = "<group>"; };
-		7609D8DC13A700E2000C0C7B /* blargg_source.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blargg_source.h; sourceTree = "<group>"; };
-		7609D8DD13A700E2000C0C7B /* Blip_Buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Blip_Buffer.cpp; sourceTree = "<group>"; };
-		7609D8DE13A700E2000C0C7B /* Blip_Buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blip_Buffer.h; sourceTree = "<group>"; };
-		7609D8DF13A700E2000C0C7B /* Blip_Synth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blip_Synth.h; sourceTree = "<group>"; };
-		7609D8E013A700E2000C0C7B /* Multi_Buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Multi_Buffer.cpp; sourceTree = "<group>"; };
-		7609D8E113A700E2000C0C7B /* Multi_Buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Multi_Buffer.h; sourceTree = "<group>"; };
-		7609D8E213A700E2000C0C7B /* Nes_Apu.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Nes_Apu.cpp; sourceTree = "<group>"; };
-		7609D8E313A700E2000C0C7B /* Nes_Apu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nes_Apu.h; sourceTree = "<group>"; };
-		7609D8E413A700E2000C0C7B /* Nes_Namco.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Nes_Namco.cpp; sourceTree = "<group>"; };
-		7609D8E513A700E2000C0C7B /* Nes_Namco.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nes_Namco.h; sourceTree = "<group>"; };
-		7609D8E613A700E2000C0C7B /* Nes_Oscs.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Nes_Oscs.cpp; sourceTree = "<group>"; };
-		7609D8E713A700E2000C0C7B /* Nes_Oscs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nes_Oscs.h; sourceTree = "<group>"; };
-		7609D8E813A700E2000C0C7B /* Nes_Vrc6.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Nes_Vrc6.cpp; sourceTree = "<group>"; };
-		7609D8E913A700E2000C0C7B /* Nes_Vrc6.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nes_Vrc6.h; sourceTree = "<group>"; };
-		7609D8EA13A700E2000C0C7B /* Nonlinear_Buffer.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Nonlinear_Buffer.cpp; sourceTree = "<group>"; };
-		7609D8EB13A700E2000C0C7B /* Nonlinear_Buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Nonlinear_Buffer.h; sourceTree = "<group>"; };
-		7609D8F513A70111000C0C7B /* config.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = config.hpp; sourceTree = "<group>"; };
-		7609D8F613A70111000C0C7B /* cstdint.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = cstdint.hpp; sourceTree = "<group>"; };
-		7609D8F713A70111000C0C7B /* static_assert.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = static_assert.hpp; sourceTree = "<group>"; };
 		7609D90013A936A7000C0C7B /* Board-Events.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Board-Events.m"; sourceTree = "<group>"; };
 		7609D90113A936A7000C0C7B /* Board-Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Board-Events.h"; sourceTree = "<group>"; };
+		769F4B6113AE902800384C14 /* MosaicTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MosaicTexture.png; sourceTree = "<group>"; };
+		769F4B7613AEB37600384C14 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/OpenAL.framework; sourceTree = DEVELOPER_DIR; };
+		769F4B8013AEBF0400384C14 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		769F4B8313AEBF3800384C14 /* AudioKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioKit.h; sourceTree = "<group>"; };
+		769F4B8413AEBF3800384C14 /* AudioKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioKit.m; sourceTree = "<group>"; };
+		769F4B8613AECC0E00384C14 /* AKAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAudio.h; sourceTree = "<group>"; };
+		769F4B8713AECC0E00384C14 /* AKAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKAudio.m; sourceTree = "<group>"; };
+		769F4B8913AEE13800384C14 /* cowbell.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = cowbell.caf; path = ../cowbell.caf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +61,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				769F4B8113AEBF0400384C14 /* AudioToolbox.framework in Frameworks */,
+				769F4B7713AEB37600384C14 /* OpenAL.framework in Frameworks */,
 				7609D8CC13A6D6C6000C0C7B /* CoreGraphics.framework in Frameworks */,
 				7609D8CA13A6D6C1000C0C7B /* UIKit.framework in Frameworks */,
 				7609D8AA13A6D3D0000C0C7B /* Foundation.framework in Frameworks */,
@@ -98,6 +84,8 @@
 		7609D8A613A6D3D0000C0C7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				769F4B8013AEBF0400384C14 /* AudioToolbox.framework */,
+				769F4B7613AEB37600384C14 /* OpenAL.framework */,
 				7609D8CB13A6D6C6000C0C7B /* CoreGraphics.framework */,
 				7609D8C913A6D6C1000C0C7B /* UIKit.framework */,
 				7609D8C713A6D6A9000C0C7B /* QuartzCore.framework */,
@@ -109,6 +97,7 @@
 		7609D8AD13A6D3D0000C0C7B /* MikeOscarNovemberEchoYankee */ = {
 			isa = PBXGroup;
 			children = (
+				769F4B8213AEBF1000384C14 /* AudioKit */,
 				7609D8CD13A6ECD6000C0C7B /* Slice.h */,
 				7609D8CE13A6ECD6000C0C7B /* Slice.m */,
 				7609D8C113A6D66E000C0C7B /* BoardController.h */,
@@ -127,8 +116,6 @@
 		7609D8AE13A6D3D0000C0C7B /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				7609D8F413A70111000C0C7B /* boost */,
-				7609D8D813A700C4000C0C7B /* Nintendo Sound */,
 				7609D8AF13A6D3D0000C0C7B /* MikeOscarNovemberEchoYankee-Info.plist */,
 				7609D8B013A6D3D0000C0C7B /* InfoPlist.strings */,
 				7609D8B313A6D3D0000C0C7B /* MikeOscarNovemberEchoYankee-Prefix.pch */,
@@ -137,49 +124,34 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		7609D8D813A700C4000C0C7B /* Nintendo Sound */ = {
-			isa = PBXGroup;
-			children = (
-				7609D8D913A700E2000C0C7B /* apu_snapshot.cpp */,
-				7609D8DA13A700E2000C0C7B /* apu_snapshot.h */,
-				7609D8DB13A700E2000C0C7B /* blargg_common.h */,
-				7609D8DC13A700E2000C0C7B /* blargg_source.h */,
-				7609D8DD13A700E2000C0C7B /* Blip_Buffer.cpp */,
-				7609D8DE13A700E2000C0C7B /* Blip_Buffer.h */,
-				7609D8DF13A700E2000C0C7B /* Blip_Synth.h */,
-				7609D8E013A700E2000C0C7B /* Multi_Buffer.cpp */,
-				7609D8E113A700E2000C0C7B /* Multi_Buffer.h */,
-				7609D8E213A700E2000C0C7B /* Nes_Apu.cpp */,
-				7609D8E313A700E2000C0C7B /* Nes_Apu.h */,
-				7609D8E413A700E2000C0C7B /* Nes_Namco.cpp */,
-				7609D8E513A700E2000C0C7B /* Nes_Namco.h */,
-				7609D8E613A700E2000C0C7B /* Nes_Oscs.cpp */,
-				7609D8E713A700E2000C0C7B /* Nes_Oscs.h */,
-				7609D8E813A700E2000C0C7B /* Nes_Vrc6.cpp */,
-				7609D8E913A700E2000C0C7B /* Nes_Vrc6.h */,
-				7609D8EA13A700E2000C0C7B /* Nonlinear_Buffer.cpp */,
-				7609D8EB13A700E2000C0C7B /* Nonlinear_Buffer.h */,
-			);
-			name = "Nintendo Sound";
-			sourceTree = "<group>";
-		};
-		7609D8F413A70111000C0C7B /* boost */ = {
-			isa = PBXGroup;
-			children = (
-				7609D8F513A70111000C0C7B /* config.hpp */,
-				7609D8F613A70111000C0C7B /* cstdint.hpp */,
-				7609D8F713A70111000C0C7B /* static_assert.hpp */,
-			);
-			path = boost;
-			sourceTree = "<group>";
-		};
 		7623190513A6D2B4004BF0E3 = {
 			isa = PBXGroup;
 			children = (
 				7609D8AD13A6D3D0000C0C7B /* MikeOscarNovemberEchoYankee */,
+				769F4B5F13AE901000384C14 /* Assets */,
 				7609D8A613A6D3D0000C0C7B /* Frameworks */,
 				7609D8A413A6D3D0000C0C7B /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		769F4B5F13AE901000384C14 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				769F4B8913AEE13800384C14 /* cowbell.caf */,
+				769F4B6113AE902800384C14 /* MosaicTexture.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
+		769F4B8213AEBF1000384C14 /* AudioKit */ = {
+			isa = PBXGroup;
+			children = (
+				769F4B8313AEBF3800384C14 /* AudioKit.h */,
+				769F4B8413AEBF3800384C14 /* AudioKit.m */,
+				769F4B8613AECC0E00384C14 /* AKAudio.h */,
+				769F4B8713AECC0E00384C14 /* AKAudio.m */,
+			);
+			name = AudioKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,6 +206,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				7609D8B213A6D3D0000C0C7B /* InfoPlist.strings in Resources */,
+				769F4B6213AE902800384C14 /* MosaicTexture.png in Resources */,
+				769F4B8A13AEE13800384C14 /* cowbell.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,15 +239,9 @@
 				7609D8C313A6D66E000C0C7B /* BoardController.m in Sources */,
 				7609D8C613A6D681000C0C7B /* BoardView.m in Sources */,
 				7609D8CF13A6ECD6000C0C7B /* Slice.m in Sources */,
-				7609D8EC13A700E2000C0C7B /* apu_snapshot.cpp in Sources */,
-				7609D8ED13A700E2000C0C7B /* Blip_Buffer.cpp in Sources */,
-				7609D8EE13A700E2000C0C7B /* Multi_Buffer.cpp in Sources */,
-				7609D8EF13A700E2000C0C7B /* Nes_Apu.cpp in Sources */,
-				7609D8F013A700E2000C0C7B /* Nes_Namco.cpp in Sources */,
-				7609D8F113A700E2000C0C7B /* Nes_Oscs.cpp in Sources */,
-				7609D8F213A700E2000C0C7B /* Nes_Vrc6.cpp in Sources */,
-				7609D8F313A700E2000C0C7B /* Nonlinear_Buffer.cpp in Sources */,
 				7609D90213A936A8000C0C7B /* Board-Events.m in Sources */,
+				769F4B8513AEBF3800384C14 /* AudioKit.m in Sources */,
+				769F4B8813AECC0E00384C14 /* AKAudio.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +335,7 @@
 				7609D8BD13A6D3D0000C0C7B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7623190A13A6D2B4004BF0E3 /* Build configuration list for PBXProject "MikeOscarNovemberEchoYankee" */ = {
 			isa = XCConfigurationList;
