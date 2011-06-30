@@ -13,8 +13,21 @@
 
 @synthesize window=_window, board;
 
+void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
+{
+}
+ 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    OSStatus result = AudioSessionInitialize(NULL, NULL, ToneInterruptionListener, self);
+    
+    if (result == kAudioSessionNoError)
+    {
+        UInt32 sessionCategory = kAudioSessionCategory_MediaPlayback;
+        AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(sessionCategory), &sessionCategory);
+    }
+
+    
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] applicationFrame]];
     [self.window makeKeyAndVisible];

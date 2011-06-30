@@ -18,12 +18,11 @@
 		7609D8CC13A6D6C6000C0C7B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7609D8CB13A6D6C6000C0C7B /* CoreGraphics.framework */; };
 		7609D8CF13A6ECD6000C0C7B /* Slice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8CE13A6ECD6000C0C7B /* Slice.m */; };
 		7609D90213A936A8000C0C7B /* Board-Events.m in Sources */ = {isa = PBXBuildFile; fileRef = 7609D90013A936A7000C0C7B /* Board-Events.m */; };
+		76212C2813B907E30000C755 /* FIFO.m in Sources */ = {isa = PBXBuildFile; fileRef = 76212C2613B907E30000C755 /* FIFO.m */; };
 		769F4B6213AE902800384C14 /* MosaicTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 769F4B6113AE902800384C14 /* MosaicTexture.png */; };
-		769F4B7713AEB37600384C14 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769F4B7613AEB37600384C14 /* OpenAL.framework */; };
 		769F4B8113AEBF0400384C14 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769F4B8013AEBF0400384C14 /* AudioToolbox.framework */; };
-		769F4B8513AEBF3800384C14 /* AudioKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 769F4B8413AEBF3800384C14 /* AudioKit.m */; };
-		769F4B8813AECC0E00384C14 /* AKAudio.m in Sources */ = {isa = PBXBuildFile; fileRef = 769F4B8713AECC0E00384C14 /* AKAudio.m */; };
 		769F4B8A13AEE13800384C14 /* cowbell.caf in Resources */ = {isa = PBXBuildFile; fileRef = 769F4B8913AEE13800384C14 /* cowbell.caf */; };
+		76A2B10613B13356008E4B68 /* Tone.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A2B10513B13356008E4B68 /* Tone.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,14 +45,15 @@
 		7609D8CE13A6ECD6000C0C7B /* Slice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slice.m; sourceTree = "<group>"; };
 		7609D90013A936A7000C0C7B /* Board-Events.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Board-Events.m"; sourceTree = "<group>"; };
 		7609D90113A936A7000C0C7B /* Board-Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Board-Events.h"; sourceTree = "<group>"; };
+		76212C2613B907E30000C755 /* FIFO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIFO.m; sourceTree = "<group>"; };
+		76212C2713B907E30000C755 /* FIFO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFO.h; sourceTree = "<group>"; };
 		769F4B6113AE902800384C14 /* MosaicTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MosaicTexture.png; sourceTree = "<group>"; };
-		769F4B7613AEB37600384C14 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/OpenAL.framework; sourceTree = DEVELOPER_DIR; };
 		769F4B8013AEBF0400384C14 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
-		769F4B8313AEBF3800384C14 /* AudioKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioKit.h; sourceTree = "<group>"; };
-		769F4B8413AEBF3800384C14 /* AudioKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioKit.m; sourceTree = "<group>"; };
-		769F4B8613AECC0E00384C14 /* AKAudio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKAudio.h; sourceTree = "<group>"; };
-		769F4B8713AECC0E00384C14 /* AKAudio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKAudio.m; sourceTree = "<group>"; };
+		769F4B8613AECC0E00384C14 /* ToneKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToneKit.h; sourceTree = "<group>"; };
+		769F4B8713AECC0E00384C14 /* ToneKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToneKit.m; sourceTree = "<group>"; };
 		769F4B8913AEE13800384C14 /* cowbell.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = cowbell.caf; path = ../cowbell.caf; sourceTree = "<group>"; };
+		76A2B10413B13356008E4B68 /* Tone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tone.h; sourceTree = "<group>"; };
+		76A2B10513B13356008E4B68 /* Tone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tone.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +62,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				769F4B8113AEBF0400384C14 /* AudioToolbox.framework in Frameworks */,
-				769F4B7713AEB37600384C14 /* OpenAL.framework in Frameworks */,
 				7609D8CC13A6D6C6000C0C7B /* CoreGraphics.framework in Frameworks */,
 				7609D8CA13A6D6C1000C0C7B /* UIKit.framework in Frameworks */,
 				7609D8AA13A6D3D0000C0C7B /* Foundation.framework in Frameworks */,
@@ -85,7 +84,6 @@
 			isa = PBXGroup;
 			children = (
 				769F4B8013AEBF0400384C14 /* AudioToolbox.framework */,
-				769F4B7613AEB37600384C14 /* OpenAL.framework */,
 				7609D8CB13A6D6C6000C0C7B /* CoreGraphics.framework */,
 				7609D8C913A6D6C1000C0C7B /* UIKit.framework */,
 				7609D8C713A6D6A9000C0C7B /* QuartzCore.framework */,
@@ -97,7 +95,7 @@
 		7609D8AD13A6D3D0000C0C7B /* MikeOscarNovemberEchoYankee */ = {
 			isa = PBXGroup;
 			children = (
-				769F4B8213AEBF1000384C14 /* AudioKit */,
+				769F4B8213AEBF1000384C14 /* ToneKit */,
 				7609D8CD13A6ECD6000C0C7B /* Slice.h */,
 				7609D8CE13A6ECD6000C0C7B /* Slice.m */,
 				7609D8C113A6D66E000C0C7B /* BoardController.h */,
@@ -143,15 +141,17 @@
 			name = Assets;
 			sourceTree = "<group>";
 		};
-		769F4B8213AEBF1000384C14 /* AudioKit */ = {
+		769F4B8213AEBF1000384C14 /* ToneKit */ = {
 			isa = PBXGroup;
 			children = (
-				769F4B8313AEBF3800384C14 /* AudioKit.h */,
-				769F4B8413AEBF3800384C14 /* AudioKit.m */,
-				769F4B8613AECC0E00384C14 /* AKAudio.h */,
-				769F4B8713AECC0E00384C14 /* AKAudio.m */,
+				769F4B8613AECC0E00384C14 /* ToneKit.h */,
+				769F4B8713AECC0E00384C14 /* ToneKit.m */,
+				76A2B10413B13356008E4B68 /* Tone.h */,
+				76A2B10513B13356008E4B68 /* Tone.m */,
+				76212C2613B907E30000C755 /* FIFO.m */,
+				76212C2713B907E30000C755 /* FIFO.h */,
 			);
-			name = AudioKit;
+			name = ToneKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -240,8 +240,8 @@
 				7609D8C613A6D681000C0C7B /* BoardView.m in Sources */,
 				7609D8CF13A6ECD6000C0C7B /* Slice.m in Sources */,
 				7609D90213A936A8000C0C7B /* Board-Events.m in Sources */,
-				769F4B8513AEBF3800384C14 /* AudioKit.m in Sources */,
-				769F4B8813AECC0E00384C14 /* AKAudio.m in Sources */,
+				76A2B10613B13356008E4B68 /* Tone.m in Sources */,
+				76212C2813B907E30000C755 /* FIFO.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

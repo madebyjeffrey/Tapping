@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
 #import "BoardController.h"
 
 @interface AppDelegate : NSObject <UIApplicationDelegate> {

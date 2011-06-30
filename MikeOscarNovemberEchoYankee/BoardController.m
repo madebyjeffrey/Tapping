@@ -11,20 +11,19 @@
 
 @implementation BoardController
 
-@synthesize board, audioFile, kit;
+@synthesize board, tone;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        kit = [[[AKManager alloc] init] autorelease];
-        audioFile = [[[AKAudio alloc] init] autorelease];
+        //kit = [[[AKManager alloc] init] autorelease];
+        //audioFile = [[[AKAudio alloc] init] autorelease];
         
-        NSBundle *bundle = [NSBundle mainBundle];
+        //NSBundle *bundle = [NSBundle mainBundle];
         
-        [audioFile openAudioWithPath: [bundle pathForResource: @"cowbell" ofType: @"caf"]];
-        [audioFile buffer];
-        [audioFile source];
+        self.tone = [Tone toneWithFrequency: 440.0];
+        
     }
     return self;
 }
@@ -61,12 +60,21 @@
 - (void) sliceTouched: (int) n {
     NSLog(@"Slice %d touched", n);
   
-    [audioFile play];
+  //  [audioFile play];
 //    [self.board setButtonPressed: n];
+    
+//    [[ToneKit sharedToneKit] playTone: 440];
+    
+    [self.tone play];
+    
+    
 }
 
 - (void) sliceUntouched: (int) n {
 //    [self.board setButtonNormal: n];
+    
+//    [[ToneKit sharedToneKit] stop];
+    [self.tone stop];
 }
 
 /*
