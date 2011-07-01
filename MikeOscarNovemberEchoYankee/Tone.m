@@ -33,7 +33,7 @@
                       [NSNumber numberWithDouble: 44100], @"Sample Rate", 
                       nil];
         self.playing = NO;
-        self.buffer = FIFO_alloc(44100); // buffer for one second
+        self.buffer = FIFO_alloc(2048); // buffer for 100 ms
         self.condition = [[[NSCondition alloc] init] autorelease];
         self.needsAudio = YES; // queue it up right away
         self.thread = [[NSThread alloc] initWithTarget: self selector: @selector(toneThread:) object: nil];
@@ -195,6 +195,8 @@ OSStatus RenderTone(
                     AudioBufferList 			*ioData)
 
 {
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+    
     // take inNumberFrames samples
     Tone *this = (Tone*)inRefCon;
     
@@ -221,6 +223,8 @@ OSStatus RenderTone(
     [this.condition signal];
     [this.condition unlock];
 
+    [pool drain];
+    
     return noErr;
 }
 

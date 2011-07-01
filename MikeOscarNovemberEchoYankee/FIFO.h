@@ -11,12 +11,19 @@
 #include <string.h>
 #include <ctype.h>
 
-#import <Foundation/Foundation.h>
+//#import <Foundation/Foundation.h>
+#include <stdbool.h>
+
+struct FIFO {
+    float *buffer;
+    float *end;
+    size_t max_length;
+};
 
 
-struct FIFO *FIFO_alloc(int length);
+struct FIFO *FIFO_alloc(size_t length);
 void FIFO_release(struct FIFO *fifo);
-bool FIFO_push(struct FIFO *restrict fifo, float *restrict data, int count);
-bool FIFO_pop(struct FIFO *restrict fifo, float *restrict data, int count);
-int FIFO_size(struct FIFO *restrict fifo);
-int FIFO_maxsize(struct FIFO *restrict fifo);
+bool FIFO_push(struct FIFO *restrict fifo, const float *restrict data, size_t count);
+bool FIFO_pop(struct FIFO *restrict fifo, float *restrict data, size_t count);
+size_t FIFO_size(const struct FIFO *fifo);
+size_t FIFO_maxsize(const struct FIFO *fifo);
