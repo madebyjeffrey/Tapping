@@ -31,6 +31,7 @@
 @property (retain) NSMutableArray *slices;
 @property (retain) NSMutableArray *sliceColours;
 @property (retain) NSMutableArray *slicePositions;
+@property (retain) NSMutableArray *slicePreviousStatus;
 
 @property (retain) NSMutableArray *trackedTouches;
 @property (retain) NSMutableArray *ignoredTouches;
@@ -40,6 +41,7 @@
 @property (assign) double outerRadius;
 @property (assign) double separation;
 @property (assign) id<BoardDelegate> delegate;
+
 
 - (UIBezierPath*) sliceFrom: (double) start to: (double) end;
 - (NSMutableArray*) makeSlices;

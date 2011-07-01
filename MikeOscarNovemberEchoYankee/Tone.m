@@ -33,7 +33,7 @@
                       [NSNumber numberWithDouble: 44100], @"Sample Rate", 
                       nil];
         self.playing = NO;
-        self.buffer = FIFO_alloc(2048); // buffer for 100 ms
+        self.buffer = FIFO_alloc(1024); // buffer for 100 ms
         self.condition = [[[NSCondition alloc] init] autorelease];
         self.needsAudio = YES; // queue it up right away
         self.thread = [[NSThread alloc] initWithTarget: self selector: @selector(toneThread:) object: nil];
@@ -127,7 +127,8 @@
             
             theta = (val = [state objectForKey: @"Theta"]) == nil ? 0 : [val doubleValue];
             
-            deltaTheta = M_2_PI * (frequency / sampleRate);
+//            NSLog(@"Frequency: %f   Sample Rate: %f   2pi: %f  %f", frequency, sampleRate, 2*M_PI, M_2_PI);
+            deltaTheta = 2 * M_PI * (frequency / sampleRate);
             
             amplitude = 0.25;
             
@@ -135,7 +136,7 @@
                 sample[frame] = sin(theta) * amplitude;
                 
                 theta += deltaTheta;
-                if (theta > M_2_PI) theta -= M_2_PI;
+                if (theta > 2 * M_PI) theta -= 2 * M_PI;
             }
             
             [state setValue: [NSNumber numberWithDouble: theta] forKey: @"Theta"];

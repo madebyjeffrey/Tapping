@@ -11,7 +11,7 @@
 
 @implementation BoardController
 
-@synthesize board, tone;
+@synthesize board, tones;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,7 +22,22 @@
         
         //NSBundle *bundle = [NSBundle mainBundle];
         
-        self.tone = [Tone toneWithFrequency: 440.0];
+//        self.tone = [Tone toneWithFrequency: 440.0];
+/*        self.tones = [NSMutableArray arrayWithObjects: [Tone toneWithFrequency: 261.626],
+                                                       [Tone toneWithFrequency: 293.66],
+                                                       [Tone toneWithFrequency: 329.63],
+                                                       [Tone toneWithFrequency: 392.00],
+                                                       [Tone toneWithFrequency: 440.00],
+                                                       [Tone toneWithFrequency: 523.25],
+                                                       [Tone toneWithFrequency: 587.33], nil]; */
+        
+        self.tones = [NSMutableArray arrayWithObjects: [Tone toneWithFrequency: 349.23],
+                      [Tone toneWithFrequency: 440],
+                      [Tone toneWithFrequency: 493.88],
+                      [Tone toneWithFrequency: 523.25],
+                      [Tone toneWithFrequency: 659.26],
+                      [Tone toneWithFrequency: 698.46], nil];
+
         
     }
     return self;
@@ -65,16 +80,18 @@
     
 //    [[ToneKit sharedToneKit] playTone: 440];
     
-    [self.tone play];
+    [[self.tones objectAtIndex: n] play];
     
     
 }
 
 - (void) sliceUntouched: (int) n {
+    
+    NSLog(@"Slice %d untouched", n);
 //    [self.board setButtonNormal: n];
     
 //    [[ToneKit sharedToneKit] stop];
-    [self.tone stop];
+    [[self.tones objectAtIndex: n] stop];
 }
 
 /*

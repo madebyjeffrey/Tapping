@@ -107,18 +107,39 @@
         }
     }
     
-    
-    for (i = 0; i< 6; i++) {
-        if ([sliceChanges objectAtIndex: i] == [NSNumber numberWithBool: YES]) {
-            [self setButtonPressed: i];
-            [self.delegate sliceTouched: i];
+    if (self.slicePreviousStatus == nil) {
+        // if no previous state, only send presses
+        
+        for (i = 0; i < 6; i++) {
+            if ([sliceChanges objectAtIndex: i] == [NSNumber numberWithBool: YES]) {
+                [self setButtonPressed: i];
+                [self.delegate sliceTouched: i];
+            }
         }
-        else {
-            [self setButtonNormal: i];
-            [self.delegate sliceUntouched: i];
+        
+
+
+    }
+    else {
+        // if we have previous state compare the two and send changes
+        for (i = 0; i< 6; i++) {
+            if ([[sliceChanges objectAtIndex: i] boolValue] != [[self.slicePreviousStatus objectAtIndex: i] boolValue]) {
+                if ([[sliceChanges objectAtIndex: i] boolValue] == YES) {
+                    [self setButtonPressed: i];
+                    [self.delegate sliceTouched: i];
+                }
+                else {
+                    [self setButtonNormal: i];
+                    [self.delegate sliceUntouched: i];
+                }
+            }
         }
+
     }
     
-    NSLog(@"Number of items in array: %d, %d", [self.trackedTouches count], [self.ignoredTouches count]);
+    // set previous state
+    self.slicePreviousStatus = sliceChanges;
+    
+//    NSLog(@"Number of items in array: %d, %d", [self.trackedTouches count], [self.ignoredTouches count]);
 }
 @end

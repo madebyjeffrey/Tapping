@@ -27,6 +27,7 @@
 
 @synthesize innerRadius, outerRadius, separation;
 @synthesize slices, sliceColours, slicePositions;
+@synthesize slicePreviousStatus;
 @synthesize delegate;
 @synthesize trackedTouches, ignoredTouches;
 
@@ -54,6 +55,8 @@
                                                                 [NSValue valueWithCGPoint: CGPointMake(0, -50)], nil];  
         
         self.trackedTouches = [NSMutableArray arrayWithCapacity: 4];
+        
+        self.slicePreviousStatus = nil;
         
         self.multipleTouchEnabled = YES;
 
@@ -98,7 +101,8 @@
     layer.strokeColor = [UIColor blackColor].CGColor;
     layer.fillColor = colour.CGColor;
     
-    layer.position = CGPointAdd([[self.slicePositions objectAtIndex: n] CGPointValue], CGPointMake(0, 2));
+    layer.position = CGPointMake(0, 2);
+    //CGPointAdd([[self.slicePositions objectAtIndex: n] CGPointValue], CGPointMake(0, 2));
     
     
     
@@ -121,7 +125,7 @@
     layer.fillColor = colour.CGColor;
     
 //    CGPoint p = layer.position;
-    layer.position = [[self.slicePositions objectAtIndex: n] CGPointValue];
+    layer.position = CGPointMake(0, 0); //[[self.slicePositions objectAtIndex: n] CGPointValue];
 
     
     layer.shadowRadius = 6;
@@ -160,7 +164,15 @@
     
     for (int i = 0; i < 6; i++) {
         l = [CAShapeLayer layer];
-        l.path = [self sliceFrom: i*PI/3 to: i*PI/3+PI/3].CGPath;
+        UIBezierPath *path = [self sliceFrom: i*PI/3 to: i*PI/3+PI/3];
+
+        CGPoint p = [[self.slicePositions objectAtIndex: i] CGPointValue];
+        
+        CGAffineTransform t = CGAffineTransformMakeTranslation(p.x, p.y);
+        [path applyTransform: t];
+        
+        l.path = path.CGPath;
+        
         l.shadowPath = l.path;
         [s addObject: l];
     }

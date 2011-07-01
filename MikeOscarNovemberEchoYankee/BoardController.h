@@ -20,6 +20,7 @@
 
 - (void) sliceTouched: (int) n;
 
-@property (retain) Tone *tone;
+//@property (retain) Tone *tone;
+@property (retain) NSMutableArray *tones;
 
 @end
