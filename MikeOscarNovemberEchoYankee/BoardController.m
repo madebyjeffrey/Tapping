@@ -31,12 +31,19 @@
                                                        [Tone toneWithFrequency: 523.25],
                                                        [Tone toneWithFrequency: 587.33], nil]; */
         
-        self.tones = [NSMutableArray arrayWithObjects: [Tone toneWithFrequency: 349.23],
-                      [Tone toneWithFrequency: 440],
-                      [Tone toneWithFrequency: 493.88],
-                      [Tone toneWithFrequency: 523.25],
-                      [Tone toneWithFrequency: 659.26],
-                      [Tone toneWithFrequency: 698.46], nil];
+        self.tones = [NSMutableArray arrayWithObjects: [Tone toneWithFrequency: 349.23 phase: 0],
+                      [Tone toneWithFrequency: 440 phase: 0],
+                      [Tone toneWithFrequency: 493.88 phase: 0],
+                      [Tone toneWithFrequency: 523.25 phase: 0],
+                      [Tone toneWithFrequency: 659.26 phase: 0],
+                      [Tone toneWithFrequency: 698.46 phase: 0], nil];
+
+/*        self.tones = [NSMutableArray arrayWithObjects: [Tone toneWithFrequency: 440 phase: 0],
+                      [Tone toneWithFrequency: 440*2 phase: 0],
+                      [Tone toneWithFrequency: 440*3 phase: 0],
+                      [Tone toneWithFrequency: 440*4 phase: 0],
+                      [Tone toneWithFrequency: 440*5 phase: 0],
+                      [Tone toneWithFrequency: 440*6 phase: 0], nil]; */
 
         
     }

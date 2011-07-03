@@ -8,10 +8,10 @@
 
 #include "FIFO.h"
 
-struct FIFO *FIFO_alloc(size_t length) {
-    struct FIFO *restrict ptr = NULL;
+FIFO *FIFO_alloc(size_t length) {
+    FIFO *restrict ptr = NULL;
     
-    ptr = (struct FIFO*)calloc(1, sizeof(struct FIFO));
+    ptr = (FIFO*)calloc(1, sizeof(FIFO));
     if (ptr == NULL) {
         return NULL;
     }
@@ -28,14 +28,14 @@ struct FIFO *FIFO_alloc(size_t length) {
     return ptr;
 }
 
-void FIFO_release(struct FIFO *fifo) {
+void FIFO_release(FIFO *fifo) {
     if (fifo) {
         free(fifo->buffer);
         free(fifo);
     }
 }
 
-bool FIFO_push(struct FIFO *restrict fifo, const float *restrict data, size_t count) {
+bool FIFO_push(FIFO *restrict fifo, const float *restrict data, size_t count) {
     if (!fifo || !data || count == 0) return false;
     
     // test for the length available
@@ -49,7 +49,7 @@ bool FIFO_push(struct FIFO *restrict fifo, const float *restrict data, size_t co
     return true;
 }
 
-bool FIFO_pop(struct FIFO *restrict fifo, float *restrict data, size_t count) {
+bool FIFO_pop(FIFO *restrict fifo, float *restrict data, size_t count) {
     if (!fifo || !data) return false;
     if (count == 0 || FIFO_size(fifo) < count) return false;
     
@@ -64,7 +64,7 @@ bool FIFO_pop(struct FIFO *restrict fifo, float *restrict data, size_t count) {
     return true;
 }
 
-size_t FIFO_size(const struct FIFO *fifo) {
+size_t FIFO_size(const FIFO *fifo) {
     if (fifo) {
         return (size_t)(fifo->end - fifo->buffer);
     }
@@ -72,7 +72,7 @@ size_t FIFO_size(const struct FIFO *fifo) {
     return 0;
 }
 
-size_t FIFO_maxsize(const struct FIFO *fifo) {
+size_t FIFO_maxsize(const FIFO *fifo) {
     if (fifo) {
         return fifo->max_length;
     }

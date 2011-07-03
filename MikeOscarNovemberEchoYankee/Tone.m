@@ -33,7 +33,7 @@
                       [NSNumber numberWithDouble: 44100], @"Sample Rate", 
                       nil];
         self.playing = NO;
-        self.buffer = FIFO_alloc(1024); // buffer for 100 ms
+        self.buffer = FIFO_alloc(2048); // buffer for 100 ms
         self.condition = [[[NSCondition alloc] init] autorelease];
         self.needsAudio = YES; // queue it up right away
         self.thread = [[NSThread alloc] initWithTarget: self selector: @selector(toneThread:) object: nil];
@@ -61,7 +61,7 @@
             [self.condition wait];
         }
         
-        struct FIFO *thebuffer = self.buffer;
+        FIFO *thebuffer = self.buffer;
         
         int samples_needed = FIFO_maxsize(thebuffer) - FIFO_size(thebuffer);
         
@@ -97,19 +97,19 @@
     [pool drain];
 }
 
-+ (Tone*) toneWithFrequency: (double) frequency {
++ (Tone*) toneWithFrequency: (double) frequency phase: (double) angle {
     Tone *this = [[Tone alloc] init];
     
     if (this) {
         [this.state setObject: [NSNumber numberWithDouble: frequency] forKey: @"Frequency"];
+        [this.state setObject: [NSNumber numberWithDouble: angle] forKey: @"Phase Angle"];
 
         [this createToneUnit];
         
         this.generator =  ^ BOOL(NSDictionary *state, int nframes, float*sample) {
             double sampleRate, frequency, theta, deltaTheta, amplitude;
+            double phaseAngle;
 
-
-            
             id val = nil;
             
             if (sample == NULL) 
@@ -125,6 +125,11 @@
             else
                 return NO;
             
+            if ((val = [state objectForKey: @"Phase Angle"]) != nil)
+                phaseAngle = [val doubleValue];
+            else 
+                return NO;
+            
             theta = (val = [state objectForKey: @"Theta"]) == nil ? 0 : [val doubleValue];
             
 //            NSLog(@"Frequency: %f   Sample Rate: %f   2pi: %f  %f", frequency, sampleRate, 2*M_PI, M_2_PI);
@@ -133,7 +138,7 @@
             amplitude = 0.25;
             
             for (int frame = 0; frame < nframes; frame++) {
-                sample[frame] = sin(theta) * amplitude;
+                sample[frame] = sin(theta + phaseAngle) * amplitude;
                 
                 theta += deltaTheta;
                 if (theta > 2 * M_PI) theta -= 2 * M_PI;

@@ -24,6 +24,7 @@
 + (TrackedLocation*) location;
 @end
 
+
 @interface BoardView : UIView {
     
 }

@@ -19,7 +19,8 @@ typedef BOOL (^ToneGenerator)(NSDictionary*, int, float*);
     AudioComponentInstance toneUnit;
 
 }
-+ (Tone*) toneWithFrequency: (double) frequency;
+//+ (Tone*) toneWithFrequency: (double) frequency;
++ (Tone*) toneWithFrequency: (double) frequency phase: (double) angle;
 + (Tone*) toneWithFrequency: (double) frequency duration: (double) seconds;
 - (void) play;
 - (void) stop;
@@ -33,7 +34,7 @@ typedef BOOL (^ToneGenerator)(NSDictionary*, int, float*);
 @property (retain) NSMutableDictionary *state;
 @property (assign) BOOL playing;
 
-@property (assign) struct FIFO *buffer;
+@property (assign) FIFO *buffer;
 @property (retain) NSCondition *condition;
 @property (assign) BOOL needsAudio;
 @property (retain) NSThread *thread;

@@ -47,6 +47,7 @@
                                                               [UIColor purpleColor],
                                                               nil];
         
+        
         self.slicePositions = [NSMutableArray arrayWithObjects: [NSValue valueWithCGPoint: CGPointMake(0, 50)], 
                                                                 [NSValue valueWithCGPoint: CGPointMake(0, 50)],
                                                                 [NSValue valueWithCGPoint: CGPointMake(0, 50)],
