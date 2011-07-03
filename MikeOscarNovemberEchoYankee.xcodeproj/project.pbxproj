@@ -12,7 +12,6 @@
 		7609D8B513A6D3D0000C0C7B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8B413A6D3D0000C0C7B /* main.m */; };
 		7609D8B813A6D3D0000C0C7B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8B713A6D3D0000C0C7B /* AppDelegate.m */; };
 		7609D8C313A6D66E000C0C7B /* BoardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8C213A6D66E000C0C7B /* BoardController.m */; };
-		7609D8C613A6D681000C0C7B /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8C513A6D681000C0C7B /* BoardView.m */; };
 		7609D8C813A6D6A9000C0C7B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7609D8C713A6D6A9000C0C7B /* QuartzCore.framework */; };
 		7609D8CA13A6D6C1000C0C7B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7609D8C913A6D6C1000C0C7B /* UIKit.framework */; };
 		7609D8CC13A6D6C6000C0C7B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7609D8CB13A6D6C6000C0C7B /* CoreGraphics.framework */; };
@@ -24,6 +23,7 @@
 		769F4B8A13AEE13800384C14 /* cowbell.caf in Resources */ = {isa = PBXBuildFile; fileRef = 769F4B8913AEE13800384C14 /* cowbell.caf */; };
 		76A2B10613B13356008E4B68 /* Tone.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A2B10513B13356008E4B68 /* Tone.m */; };
 		76C6E5A013C0F40C002D069C /* WaveForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C6E59F13C0F40C002D069C /* WaveForm.m */; };
+		76C6E5A413C0FC62002D069C /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C6E5A213C0FC62002D069C /* BoardView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,8 +37,6 @@
 		7609D8B713A6D3D0000C0C7B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7609D8C113A6D66E000C0C7B /* BoardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardController.h; sourceTree = "<group>"; };
 		7609D8C213A6D66E000C0C7B /* BoardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardController.m; sourceTree = "<group>"; };
-		7609D8C413A6D681000C0C7B /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BoardView.h; path = MikeOscarNovemberEchoYankee.xcodeproj/BoardView.h; sourceTree = SOURCE_ROOT; };
-		7609D8C513A6D681000C0C7B /* BoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BoardView.m; path = MikeOscarNovemberEchoYankee.xcodeproj/BoardView.m; sourceTree = SOURCE_ROOT; };
 		7609D8C713A6D6A9000C0C7B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		7609D8C913A6D6C1000C0C7B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		7609D8CB13A6D6C6000C0C7B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
@@ -57,6 +55,8 @@
 		76A2B10513B13356008E4B68 /* Tone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tone.m; sourceTree = "<group>"; };
 		76C6E59E13C0F40C002D069C /* WaveForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveForm.h; sourceTree = "<group>"; };
 		76C6E59F13C0F40C002D069C /* WaveForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveForm.m; sourceTree = "<group>"; };
+		76C6E5A213C0FC62002D069C /* BoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardView.m; sourceTree = "<group>"; };
+		76C6E5A313C0FC62002D069C /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +103,8 @@
 				7609D8CE13A6ECD6000C0C7B /* Slice.m */,
 				7609D8C113A6D66E000C0C7B /* BoardController.h */,
 				7609D8C213A6D66E000C0C7B /* BoardController.m */,
-				7609D8C413A6D681000C0C7B /* BoardView.h */,
-				7609D8C513A6D681000C0C7B /* BoardView.m */,
+				76C6E5A213C0FC62002D069C /* BoardView.m */,
+				76C6E5A313C0FC62002D069C /* BoardView.h */,
 				7609D90113A936A7000C0C7B /* Board-Events.h */,
 				7609D90013A936A7000C0C7B /* Board-Events.m */,
 				7609D8B613A6D3D0000C0C7B /* AppDelegate.h */,
@@ -242,12 +242,12 @@
 				7609D8B513A6D3D0000C0C7B /* main.m in Sources */,
 				7609D8B813A6D3D0000C0C7B /* AppDelegate.m in Sources */,
 				7609D8C313A6D66E000C0C7B /* BoardController.m in Sources */,
-				7609D8C613A6D681000C0C7B /* BoardView.m in Sources */,
 				7609D8CF13A6ECD6000C0C7B /* Slice.m in Sources */,
 				7609D90213A936A8000C0C7B /* Board-Events.m in Sources */,
 				76A2B10613B13356008E4B68 /* Tone.m in Sources */,
 				76212C2813B907E30000C755 /* FIFO.m in Sources */,
 				76C6E5A013C0F40C002D069C /* WaveForm.m in Sources */,
+				76C6E5A413C0FC62002D069C /* BoardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
