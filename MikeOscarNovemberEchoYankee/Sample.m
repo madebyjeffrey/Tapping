@@ -52,47 +52,66 @@
 }
 
 - (size_t) count {
-    if (self->buffer) {
-        return (size_t)(self->end - self->buffer);
-    }
-
-    @throw NSInvalidArgumentException;
-    return 0;
+    NSAssert(buffer != NULL, @"Structure not allocated");
+    
+    return (size_t)(end - buffer);
 }
 
 - (size_t) capacity {
-    return self->max_length;
+    return max_length;
 }
 
 
 - (Sample*) extract: (size_t) samples {
+
     // Test 1: Do we have the samples
     if ([self count] > samples) {
         // We do not have the samples
-        @throw NSRangeException;
+        @throw [NSException exceptionWithName:NSRangeException 
+                                       reason: [NSString stringWithFormat: @"You wanted %d samples, there are only %d samples.", samples, [self count]] 
+                                     userInfo: nil];
     }
     
-    Sample *sample = [[Sample alloc] init];
+    Sample *sample = [[Sample alloc] initWithLength: samples];
     
     if (sample) {
-
+        [sample importFloats: buffer count: samples];
+        [self removeSamples: samples];
     }
     
-    return nil;
+    return [sample autorelease];
+}
+
+- (void) removeSamples: (size_t) samples {
+    NSAssert(buffer != NULL, @"Structure not allocated");
+    
+    // Do we have the samples to remove?
+    if (self.count <= samples) {
+        // yes
+        size_t delta = self.count - samples;
+        
+        memmove(buffer, end - delta, delta);
+    }
+    else {
+        // no
+        @throw [NSException exceptionWithName:NSRangeException 
+                                       reason: [NSString stringWithFormat: @"You wanted to remove %d samples, but there are only %d samples.", samples, [self count]] 
+                                     userInfo: nil];
+    }
 }
 
 - (void) importFloats: (float*) floats count: (size_t) length {
-    // Test 1: Are we initialized?
-    if (self->buffer == NULL) {
-        // We are not
-        @throw NSInvalidArgumentException;
-    }
+       NSAssert(buffer != NULL, @"Structure not allocated");
+
     // Test 2: Do we have the space?
     size_t delta = self.capacity - self.count;
     if (delta > length) {
-        // We do not - make it expand?
-        @throw NSRangeException;
-    }
+        // We do not - make it expand in future?
+        @throw [NSException exceptionWithName:NSRangeException 
+                                       reason: 
+                [NSString stringWithFormat: @"You wanted to import %d samples, but there is only room for %d samples.", length, delta] 
+                                     userInfo: nil];
+    }    
     
     // no way to check if worked or failed
     memcpy(self->end, floats, length);

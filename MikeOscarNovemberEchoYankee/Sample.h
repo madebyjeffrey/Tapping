@@ -27,4 +27,5 @@
 - (Sample*) extract: (size_t) samples;
 - (size_t) capacity;
 - (size_t) count;
+- (void) removeSamples: (size_t) samples;
 @end
