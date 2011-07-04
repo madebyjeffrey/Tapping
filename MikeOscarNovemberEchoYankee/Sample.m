@@ -45,7 +45,7 @@
 
 }
 
-- (Sample*) sampleWithLength: (size_t) samples {
++ (Sample*) sampleWithLength: (size_t) samples {
     Sample *sample = [[Sample alloc] initWithLength: samples];
     
     return [sample autorelease];
@@ -82,6 +82,12 @@
     return [sample autorelease];
 }
 
+- (void) append: (Sample*) samples {
+    NSAssert(buffer != NULL, @"Structure not allocated");
+    
+    [self importFloats: samples->buffer count: [samples count]];
+}
+
 - (void) removeSamples: (size_t) samples {
     NSAssert(buffer != NULL, @"Structure not allocated");
     
@@ -91,6 +97,8 @@
         size_t delta = self.count - samples;
         
         memmove(buffer, end - delta, delta);
+        
+        end -= delta;
     }
     else {
         // no
@@ -105,7 +113,7 @@
 
     // Test 2: Do we have the space?
     size_t delta = self.capacity - self.count;
-    if (delta > length) {
+    if (length > delta) {
         // We do not - make it expand in future?
         @throw [NSException exceptionWithName:NSRangeException 
                                        reason: 
@@ -115,6 +123,21 @@
     
     // no way to check if worked or failed
     memcpy(self->end, floats, length);
+    
+    self->end += length;
+}
+
+- (void) copyToBuffer: (float*)destination count: (size_t) amount {
+    NSAssert(buffer != NULL, @"Structure not allocated");
+    NSAssert(destination != NULL, @"destination is not allocated");
+    
+    if ([self count] < amount) {
+        @throw [NSException exceptionWithName:NSRangeException 
+                                       reason: [NSString stringWithFormat: @"You wanted to copy %d samples, but there are only %d samples.", amount, [self count]] 
+                                     userInfo: nil];
+    }
+    
+    memcpy(destination, self->buffer, amount);
 }
 
 @end
