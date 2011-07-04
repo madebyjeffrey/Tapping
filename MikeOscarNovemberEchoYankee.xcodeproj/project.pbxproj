@@ -22,7 +22,7 @@
 		769F4B8113AEBF0400384C14 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769F4B8013AEBF0400384C14 /* AudioToolbox.framework */; };
 		769F4B8A13AEE13800384C14 /* cowbell.caf in Resources */ = {isa = PBXBuildFile; fileRef = 769F4B8913AEE13800384C14 /* cowbell.caf */; };
 		76A2B10613B13356008E4B68 /* Tone.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A2B10513B13356008E4B68 /* Tone.m */; };
-		76C6E5A013C0F40C002D069C /* WaveForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C6E59F13C0F40C002D069C /* WaveForm.m */; };
+		76C6E5A013C0F40C002D069C /* Sample.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C6E59F13C0F40C002D069C /* Sample.m */; };
 		76C6E5A413C0FC62002D069C /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C6E5A213C0FC62002D069C /* BoardView.m */; };
 /* End PBXBuildFile section */
 
@@ -53,8 +53,8 @@
 		769F4B8913AEE13800384C14 /* cowbell.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = cowbell.caf; path = ../cowbell.caf; sourceTree = "<group>"; };
 		76A2B10413B13356008E4B68 /* Tone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tone.h; sourceTree = "<group>"; };
 		76A2B10513B13356008E4B68 /* Tone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tone.m; sourceTree = "<group>"; };
-		76C6E59E13C0F40C002D069C /* WaveForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaveForm.h; sourceTree = "<group>"; };
-		76C6E59F13C0F40C002D069C /* WaveForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaveForm.m; sourceTree = "<group>"; };
+		76C6E59E13C0F40C002D069C /* Sample.h */ = {isa = PBXFileReference; fileEncoding = 4; path = Sample.h; sourceTree = "<group>"; };
+		76C6E59F13C0F40C002D069C /* Sample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sample.m; sourceTree = "<group>"; };
 		76C6E5A213C0FC62002D069C /* BoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardView.m; sourceTree = "<group>"; };
 		76C6E5A313C0FC62002D069C /* BoardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BoardView.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -153,8 +153,8 @@
 				76A2B10513B13356008E4B68 /* Tone.m */,
 				76212C2613B907E30000C755 /* FIFO.m */,
 				76212C2713B907E30000C755 /* FIFO.h */,
-				76C6E59E13C0F40C002D069C /* WaveForm.h */,
-				76C6E59F13C0F40C002D069C /* WaveForm.m */,
+				76C6E59E13C0F40C002D069C /* Sample.h */,
+				76C6E59F13C0F40C002D069C /* Sample.m */,
 			);
 			name = ToneKit;
 			sourceTree = "<group>";
@@ -246,7 +246,7 @@
 				7609D90213A936A8000C0C7B /* Board-Events.m in Sources */,
 				76A2B10613B13356008E4B68 /* Tone.m in Sources */,
 				76212C2813B907E30000C755 /* FIFO.m in Sources */,
-				76C6E5A013C0F40C002D069C /* WaveForm.m in Sources */,
+				76C6E5A013C0F40C002D069C /* Sample.m in Sources */,
 				76C6E5A413C0FC62002D069C /* BoardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
