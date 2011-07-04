@@ -28,6 +28,12 @@
     
     if (self) {
         self->buffer = malloc(length * sizeof(float));
+        
+        if (buffer == NULL) {
+            [self release];
+            return nil;
+        }
+        
         self->end = buffer;
         
         self->max_length = length;
@@ -61,6 +67,9 @@
     return max_length;
 }
 
+- (size_t) available {
+    return self.capacity - self.count;
+}
 
 - (Sample*) dequeue: (size_t) count {
 

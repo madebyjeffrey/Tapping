@@ -19,6 +19,64 @@
 - (void) createToneUnit;
 @end 
 
+
+@implementation FrequencyWave
+
+@synthesize buffer;
+
++ (FrequencyWave*) frequencyWave: (float) f {
+    FrequencyWave *fw = [[FrequencyWave alloc] init];
+
+    if (fw) {
+        fw->sampleRate = 44100;
+        fw->frequency = f;
+        fw->theta = 0;
+        fw->deltaTheta = 2 * M_PI * (fw->frequency / fw->sampleRate);
+        fw->amplitude = 1;
+        fw->phaseAngle = 0;
+        
+        fw.buffer = [Sample sampleWithLength: 2048];
+    }
+    
+    return fw;
+}
+
+- (void) dealloc {
+    self.buffer = nil;
+}
+
+- (void) fillBuffer {
+    size_t count = self.buffer.available;
+    
+    float *buf = malloc(sizeof(float) * count);
+    
+    NSAssert(buf != NULL, @"No memory allocated in buffer");
+    
+    for (size_t frame = 0; frame < count; frame++) {
+        buf[frame] = sin(theta + phaseAngle);
+        
+        theta += deltaTheta;
+        if (theta > (2*M_PI)) theta -= 2 * M_PI;
+    }
+            
+    [self.buffer enqueueSamples: buf count: count];
+            
+    free(buf);
+
+}
+
+@end
+
+/* Update Tone to use new FrequencyWave:
+    1. Update all existing code to use Sample
+    2. Convert it to use FrequencyWave
+    3. Change it into a more generic generator that multiplies a set of frequencywave classes together
+    4. Give the frequency wave class a better name and base class that they will all work with
+    5. ???
+    6. Work with a dynamic queue to have worker threads
+ 
+ */
+
 @implementation Tone
 
 @synthesize generator, state, playing, buffer, condition, needsAudio, thread;

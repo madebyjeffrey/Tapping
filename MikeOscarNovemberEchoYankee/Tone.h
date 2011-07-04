@@ -12,8 +12,20 @@
 
 #import "FIFO.h"
 
+#import "Sample.h"
+
 typedef BOOL (^ToneGenerator)(NSDictionary*, int, float*);
 
+@interface FrequencyWave : NSObject {
+    double sampleRate, frequency, theta, deltaTheta, amplitude;
+    double phaseAngle;
+}
+
+@property (retain) Sample *buffer;
+
+- (void) fillBuffer;
+
+@end
 
 @interface Tone : NSObject {
     AudioComponentInstance toneUnit;
