@@ -27,16 +27,21 @@
 
 
 // Append another sample to the end
-- (void) append: (Sample*) samples;
+- (void) enqueue: (Sample*) samples;
 
 // add floats to the end of the structure
-- (void) importFloats: (float*) floats count: (size_t) length;
+- (void) enqueueSamples: (float*) samples count: (size_t) count;
 
 // take samples from the beginning in a new Sample
-- (Sample*) extract: (size_t) samples;
+- (Sample*) dequeue: (size_t) count;
+
+// copies samples to a buffer
+- (void) dequeueSamples: (float*) samples count: (size_t) count;
+
+
 
 // Remove samples
-- (void) removeSamples: (size_t) samples;
+- (void) removeSamples: (size_t) count;
 
 // Max size
 - (size_t) capacity;
@@ -44,7 +49,5 @@
 // Current size
 - (size_t) count;
 
-// copies samples to a buffer
-- (void) copyToBuffer: (float*)destination count: (size_t) amount;
 
 @end

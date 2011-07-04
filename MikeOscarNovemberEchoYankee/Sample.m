@@ -62,55 +62,52 @@
 }
 
 
-- (Sample*) extract: (size_t) samples {
+- (Sample*) dequeue: (size_t) count {
 
     // Test 1: Do we have the samples
-    if ([self count] > samples) {
+    if (self.count > count) {
         // We do not have the samples
         @throw [NSException exceptionWithName:NSRangeException 
-                                       reason: [NSString stringWithFormat: @"You wanted %d samples, there are only %d samples.", samples, [self count]] 
+                                       reason: [NSString stringWithFormat: @"You wanted %d samples, there are only %d samples.", count, 
+                                                [self count]] 
                                      userInfo: nil];
     }
     
-    Sample *sample = [[Sample alloc] initWithLength: samples];
+    Sample *sample = [[Sample alloc] initWithLength: count];
     
     if (sample) {
-        [sample importFloats: buffer count: samples];
-        [self removeSamples: samples];
+        [sample enqueueSamples: buffer count: count];
+        [self removeSamples: count];
     }
     
     return [sample autorelease];
 }
 
-- (void) append: (Sample*) samples {
+- (void) dequeueSamples: (float*) samples count: (size_t) count {
     NSAssert(buffer != NULL, @"Structure not allocated");
+    NSAssert(samples != NULL, @"destination is not allocated");
     
-    [self importFloats: samples->buffer count: [samples count]];
-}
-
-- (void) removeSamples: (size_t) samples {
-    NSAssert(buffer != NULL, @"Structure not allocated");
-    
-    // Do we have the samples to remove?
-    if (self.count <= samples) {
-        // yes
-        size_t delta = self.count - samples;
-        
-        memmove(buffer, end - delta, delta);
-        
-        end -= delta;
-    }
-    else {
-        // no
+    if (self.count < count) {
         @throw [NSException exceptionWithName:NSRangeException 
-                                       reason: [NSString stringWithFormat: @"You wanted to remove %d samples, but there are only %d samples.", samples, [self count]] 
+                                       reason: [NSString stringWithFormat: @"You wanted to copy %d samples, but there are only %d samples.", count, self.count] 
                                      userInfo: nil];
     }
+    
+    memcpy(samples, self->buffer, count);
+    
+    [self removeSamples: count];
 }
 
-- (void) importFloats: (float*) floats count: (size_t) length {
-       NSAssert(buffer != NULL, @"Structure not allocated");
 
+- (void) enqueue: (Sample*) samples {
+    NSAssert(buffer != NULL, @"Structure not allocated");
+    
+    [self enqueueSamples: samples->buffer count: [samples count]];
+}
+
+- (void) enqueueSamples: (float*) samples count: (size_t) length {
+    NSAssert(buffer != NULL, @"Structure not allocated");
+    
     // Test 2: Do we have the space?
     size_t delta = self.capacity - self.count;
     if (length > delta) {
@@ -122,22 +119,32 @@
     }    
     
     // no way to check if worked or failed
-    memcpy(self->end, floats, length);
+    memcpy(self->end, samples, length);
     
     self->end += length;
 }
 
-- (void) copyToBuffer: (float*)destination count: (size_t) amount {
+- (void) removeSamples: (size_t) count {
     NSAssert(buffer != NULL, @"Structure not allocated");
-    NSAssert(destination != NULL, @"destination is not allocated");
     
-    if ([self count] < amount) {
+    // Do we have the samples to remove?
+    if (self.count <= count) {
+        // yes
+        size_t delta = self.count - count;
+        
+        memmove(buffer, end - delta, delta);
+        
+        end -= delta;
+    }
+    else {
+        // no
         @throw [NSException exceptionWithName:NSRangeException 
-                                       reason: [NSString stringWithFormat: @"You wanted to copy %d samples, but there are only %d samples.", amount, [self count]] 
+                                       reason: [NSString stringWithFormat: @"You wanted to remove %d samples, but there are only %d samples.", count, [self count]] 
                                      userInfo: nil];
     }
-    
-    memcpy(destination, self->buffer, amount);
 }
+
+
+
 
 @end
