@@ -9,7 +9,33 @@
 #import "Sample.h"
 
 
+
 @implementation Sample
+
++ (Sample*) multiplySamples: (Sample*) sample, ... {
+    va_list ap;
+    
+    va_start(ap, sample);
+    
+    Sample *result, *arg1, *arg2;
+    
+    arg1 = sample;
+    arg2 = va_arg(ap, Sample*);
+    
+    if (arg2 == nil)
+        return sample;
+    
+    result = [arg2 copy];
+    
+    int c1 = [arg1 count], c2 = [arg2 count];
+    
+    int len = MIN(c1, c2);
+    
+    catlas_caxpby(len, 1.0, 
+    
+ // use catlas_caxpby
+    return nil;
+}
 
 - (id) init {
     self = [super init];
@@ -22,6 +48,17 @@
     
     return self;
 }
+                  
+- (id)copy {
+    id ret = [[Sample alloc] initWithLength: [self capacity]];
+    
+    memcpy(ret->buffer, self->buffer, [self count]);
+    ret->end = ret->buffer + (ret->end - ret->buffer);
+    ret->max_length = self->max_length;
+    
+    return ret;
+}
+                
 
 - (id) initWithLength: (size_t) length {
     self = [self init];
@@ -152,8 +189,5 @@
                                      userInfo: nil];
     }
 }
-
-
-
 
 @end

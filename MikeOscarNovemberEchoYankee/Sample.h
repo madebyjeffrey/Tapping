@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <Accelerate/Accelerate.h>
 
 #include <errno.h>
 #include <stdlib.h>
@@ -14,12 +15,15 @@
 #include <ctype.h>
 
 #include <stdbool.h>
+#include <stdargs.h>
 
 @interface Sample : NSObject {
     float *buffer;
     float *end;
     size_t max_length;
 }
+
++ (Sample*) multiplySamples: (Sample*) sample, ...;
 
 // Initialize with size
 - (id) initWithLength: (size_t) length;
@@ -49,5 +53,6 @@
 // Current size
 - (size_t) count;
 
+- (size_t) available;
 
 @end

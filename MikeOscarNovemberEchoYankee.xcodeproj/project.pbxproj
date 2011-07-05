@@ -31,6 +31,7 @@
 		76FE87AE13C15620008B72DB /* SampleTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 76FE87AD13C15620008B72DB /* SampleTests.h */; };
 		76FE87B013C15620008B72DB /* SampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FE87AF13C15620008B72DB /* SampleTests.m */; };
 		76FE87B813C1593E008B72DB /* Sample.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C6E59F13C0F40C002D069C /* Sample.m */; };
+		76FE87BA13C18CB8008B72DB /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76FE87B913C18CB8008B72DB /* Accelerate.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		76FE87AC13C15620008B72DB /* SampleTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SampleTests-Prefix.pch"; sourceTree = "<group>"; };
 		76FE87AD13C15620008B72DB /* SampleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleTests.h; sourceTree = "<group>"; };
 		76FE87AF13C15620008B72DB /* SampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleTests.m; sourceTree = "<group>"; };
+		76FE87B913C18CB8008B72DB /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76FE87BA13C18CB8008B72DB /* Accelerate.framework in Frameworks */,
 				769F4B8113AEBF0400384C14 /* AudioToolbox.framework in Frameworks */,
 				7609D8CC13A6D6C6000C0C7B /* CoreGraphics.framework in Frameworks */,
 				7609D8CA13A6D6C1000C0C7B /* UIKit.framework in Frameworks */,
@@ -110,6 +113,7 @@
 		7609D8A613A6D3D0000C0C7B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				76FE87B913C18CB8008B72DB /* Accelerate.framework */,
 				769F4B8013AEBF0400384C14 /* AudioToolbox.framework */,
 				7609D8CB13A6D6C6000C0C7B /* CoreGraphics.framework */,
 				7609D8C913A6D6C1000C0C7B /* UIKit.framework */,

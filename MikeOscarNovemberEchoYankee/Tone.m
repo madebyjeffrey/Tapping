@@ -22,7 +22,7 @@
 
 @implementation FrequencyWave
 
-@synthesize buffer;
+@synthesize buffer, enabled;
 
 + (FrequencyWave*) frequencyWave: (float) f {
     FrequencyWave *fw = [[FrequencyWave alloc] init];
@@ -36,6 +36,7 @@
         fw->phaseAngle = 0;
         
         fw.buffer = [Sample sampleWithLength: 2048];
+        fw.enabled = YES;
     }
     
     return fw;
@@ -79,7 +80,7 @@
 
 @implementation Tone
 
-@synthesize generator, state, playing, buffer, condition, needsAudio, thread;
+@synthesize generator, state, playing, buffer, condition, needsAudio, thread, units;
 
 - (id) init {
     self = [super init];
@@ -91,10 +92,15 @@
                       [NSNumber numberWithDouble: 44100], @"Sample Rate", 
                       nil];
         self.playing = NO;
+
         self.buffer = FIFO_alloc(2048); // buffer for 100 ms
         self.condition = [[[NSCondition alloc] init] autorelease];
         self.needsAudio = YES; // queue it up right away
         self.thread = [[NSThread alloc] initWithTarget: self selector: @selector(toneThread:) object: nil];
+        
+        
+        // elements will go in here, can be individually added and removed
+        self.units = [NSMutableDictionary dictionaryWithCapacity: 4]; // elements
     }
     
     return self;
@@ -273,13 +279,14 @@ OSStatus RenderTone(
     // check available
     if (samples_available < inNumberFrames) { // buffer underrun
         NSLog(@"RenderTone: Buffer underrun! Need %lu more samples", inNumberFrames - samples_available);
-        
+        // [this.buffer dequeueSamples: ioData->mBuffers[0].mData count: samples_available];
         FIFO_pop(this.buffer, ioData->mBuffers[0].mData, samples_available);
         // duplicate 0.0f for the rest
         
     }
     // we have enough samples
     else {
+        // [this.buffer dequeueSamples: ioData->mBuffers[0].mData count: inNumberFrames];
         FIFO_pop(this.buffer, ioData->mBuffers[0].mData, inNumberFrames);
     }
         

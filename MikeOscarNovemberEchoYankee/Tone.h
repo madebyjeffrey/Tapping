@@ -22,6 +22,7 @@ typedef BOOL (^ToneGenerator)(NSDictionary*, int, float*);
 }
 
 @property (retain) Sample *buffer;
+@property (assign) BOOL enabled;
 
 - (void) fillBuffer;
 
@@ -50,4 +51,7 @@ typedef BOOL (^ToneGenerator)(NSDictionary*, int, float*);
 @property (retain) NSCondition *condition;
 @property (assign) BOOL needsAudio;
 @property (retain) NSThread *thread;
+
+@property (retain) NSMutableDictionary *units;
+
 @end
