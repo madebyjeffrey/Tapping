@@ -15,7 +15,7 @@
 #include <ctype.h>
 
 #include <stdbool.h>
-#include <stdargs.h>
+
 
 @interface Sample : NSObject {
     float *buffer;
@@ -23,11 +23,11 @@
     size_t max_length;
 }
 
-+ (Sample*) multiplySamples: (Sample*) sample, ...;
+- (Sample*) multiplyBy: (Sample*) sample;
 
 // Initialize with size
-- (id) initWithLength: (size_t) length;
-+ (Sample*) sampleWithLength: (size_t) samples;
+- (id) initWithCapacity: (size_t) capacity;
++ (Sample*) sampleWithCapacity: (size_t) capacity;
 
 
 // Append another sample to the end

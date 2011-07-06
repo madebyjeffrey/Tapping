@@ -8,11 +8,13 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
+#import <Accelerate/Accelerate.h>
+
 #import "Sample.h"
 
 @interface SampleTests : SenTestCase {
 @private
-    Sample *sample1;
+//    Sample *sample1;
 }
 
 @end

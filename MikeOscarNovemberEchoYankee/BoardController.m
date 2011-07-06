@@ -8,6 +8,7 @@
 
 #import "BoardController.h"
 
+//#include <arm_neon.h>
 
 @implementation BoardController
 
@@ -44,8 +45,22 @@
                       [Tone toneWithFrequency: 440*4 phase: 0],
                       [Tone toneWithFrequency: 440*5 phase: 0],
                       [Tone toneWithFrequency: 440*6 phase: 0], nil]; */
-
+/*
+        float inputX[4] = { 2, 4, 8, 16 };
+        float inputY[4] = { 2, 4, 8, 16 };
+        float resultZ[4] = { 0, 0, 0, 0 };
         
+        float32x4_t sample1, sample2, result;
+        
+        sample1 = vld1q_f32(inputX);
+        sample2 = vld1q_f32(inputY);
+        
+        result = vmulq_f32(sample1, sample2);
+        
+        vst1q_f32(resultZ, result);
+
+        NSLog(@"Result: %f, %f, %f, %f", resultZ[0], resultZ[1], resultZ[2], resultZ[3]);
+*/
     }
     return self;
 }

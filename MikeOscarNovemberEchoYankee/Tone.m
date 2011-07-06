@@ -35,15 +35,17 @@
         fw->amplitude = 1;
         fw->phaseAngle = 0;
         
-        fw.buffer = [Sample sampleWithLength: 2048];
+        fw.buffer = [Sample sampleWithCapacity: 2048];
         fw.enabled = YES;
     }
     
-    return fw;
+    return [fw autorelease];
 }
 
 - (void) dealloc {
     self.buffer = nil;
+    
+    [super dealloc];
 }
 
 - (void) fillBuffer {

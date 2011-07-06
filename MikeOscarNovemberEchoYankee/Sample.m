@@ -9,32 +9,24 @@
 #import "Sample.h"
 
 
-
 @implementation Sample
 
-+ (Sample*) multiplySamples: (Sample*) sample, ... {
-    va_list ap;
+- (Sample*) multiplyBy: (Sample*) sample {
+    // returns self
     
-    va_start(ap, sample);
+    if (sample.count != self.count) {
+        @throw [NSException exceptionWithName: NSRangeException 
+                                       reason: 
+                [NSString stringWithFormat: @"You wanted to multiply %d samples by %d samples, they must be equal.", self.count, sample.count] 
+                                     userInfo: nil];
+    }
+    // vmulq_f32  float32x4_t   float32x4x2_t vld2q_f32(__transfersize(8) float32_t const * ptr); 
+//    catlas_saxpby(sample.count / 2, 1.0, sample->buffer, 1, 1.0, self->buffer, 1);
+//    vDSP_vmul FTW!
     
-    Sample *result, *arg1, *arg2;
+    vDSP_vmul(self->buffer, 1, sample->buffer, 1, self->buffer, 1, [self count]);
     
-    arg1 = sample;
-    arg2 = va_arg(ap, Sample*);
-    
-    if (arg2 == nil)
-        return sample;
-    
-    result = [arg2 copy];
-    
-    int c1 = [arg1 count], c2 = [arg2 count];
-    
-    int len = MIN(c1, c2);
-    
-    catlas_caxpby(len, 1.0, 
-    
- // use catlas_caxpby
-    return nil;
+    return self;
 }
 
 - (id) init {
@@ -49,10 +41,10 @@
     return self;
 }
                   
-- (id)copy {
-    id ret = [[Sample alloc] initWithLength: [self capacity]];
+- (Sample*)copy {
+    Sample *ret = [[Sample alloc] initWithLength: [self capacity]];
     
-    memcpy(ret->buffer, self->buffer, [self count]);
+    memcpy(ret->buffer, self->buffer, self.count);
     ret->end = ret->buffer + (ret->end - ret->buffer);
     ret->max_length = self->max_length;
     
@@ -60,11 +52,11 @@
 }
                 
 
-- (id) initWithLength: (size_t) length {
+- (id) initWithCapacity: (size_t) capacity {
     self = [self init];
     
     if (self) {
-        self->buffer = malloc(length * sizeof(float));
+        self->buffer = malloc(capacity * sizeof(float));
         
         if (buffer == NULL) {
             [self release];
@@ -73,7 +65,7 @@
         
         self->end = buffer;
         
-        self->max_length = length;
+        self->max_length = capacity;
     }
     
     return self;
@@ -88,8 +80,8 @@
 
 }
 
-+ (Sample*) sampleWithLength: (size_t) samples {
-    Sample *sample = [[Sample alloc] initWithLength: samples];
++ (Sample*) sampleWithCapacity: (size_t) capacity {
+    Sample *sample = [[Sample alloc] initWithCapacity: capacity];
     
     return [sample autorelease];
 }
