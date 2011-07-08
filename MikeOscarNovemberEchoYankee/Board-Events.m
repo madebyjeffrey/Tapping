@@ -14,15 +14,16 @@
 - (int) insideButton: (CGPoint) p {
     CGAffineTransform centre = CGAffineTransformMakeTranslation(self.bounds.size.width / 2, self.bounds.size.height / 2);
     
-    for (int i = 0; i < 6; i++) {
-        CAShapeLayer *shape = [self.slices objectAtIndex: i];
-        
+    int i = 0;
+    
+    for (CAShapeLayer *shape in self.slices) {
         UIBezierPath *path = [UIBezierPath bezierPathWithCGPath: shape.path];
         [path applyTransform: centre];
         
         if ([path containsPoint: p]) {
             return i;
         }
+        i++;
     }
     
     return -1; // @throw ist verboten!

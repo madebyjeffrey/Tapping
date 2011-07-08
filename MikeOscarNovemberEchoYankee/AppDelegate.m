@@ -49,9 +49,12 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
     self.window = [[[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] applicationFrame]] autorelease];
     [self.window makeKeyAndVisible];
 
+
     
     self.board = [[[BoardController alloc] initWithNibName: nil bundle:nil] autorelease];
-    [self.window addSubview: self.board.view];
+
+    
+    [[self window] setRootViewController: self.board];
     
     return YES;
 }
@@ -113,6 +116,8 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
 
 - (void)dealloc
 {
+    self.board = nil;
+    
     [_window release];
     [super dealloc];
 }
