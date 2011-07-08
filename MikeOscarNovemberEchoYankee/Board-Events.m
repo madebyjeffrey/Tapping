@@ -36,13 +36,14 @@
 }
 
 - (BOOL) isInsideSlice: (UITouch*) touch {
-    CGAffineTransform centre = CGAffineTransformMakeTranslation(self.bounds.size.width / 2, self.bounds.size.height / 2);
+    CGPoint test;
     
     for (CAShapeLayer *shape in self.slices) {
         UIBezierPath *path = [UIBezierPath bezierPathWithCGPath: shape.path];
-        [path applyTransform: centre];
-        
-        if ([path containsPoint: [touch locationInView: self]]) {
+
+        test = [shape convertPoint: [touch locationInView: self] fromLayer: [shape superlayer]];
+
+        if ([path containsPoint: test]) {
             return YES;
         }
     }
