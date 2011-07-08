@@ -1,8 +1,8 @@
 //
-//  Tone.h
+//  Tone2.h
 //  MikeOscarNovemberEchoYankee
 //
-//  Created by Jeffrey Drake on 11-06-21.
+//  Created by Jeffrey Drake on 11-07-08.
 //  Copyright 2011 N/A. All rights reserved.
 //
 
@@ -12,13 +12,29 @@
 
 #import "FIFO.h"
 
+#import "Sample.h"
+
 typedef BOOL (^ToneGenerator)(NSDictionary*, int, float*);
 
-@interface Tone : NSObject {
-    AudioComponentInstance toneUnit;
+@interface FrequencyWave : NSObject {
+    double sampleRate, frequency, theta, deltaTheta, amplitude;
+    double phaseAngle;
 }
-+ (Tone*) toneWithFrequency: (double) frequency phase: (double) angle;
-+ (Tone*) toneWithFrequency: (double) frequency duration: (double) seconds;
+
+@property (retain) Sample *buffer;
+@property (assign) BOOL enabled;
+
+- (void) fillBuffer;
+
+@end
+
+@interface Tone2 : NSObject {
+    AudioComponentInstance toneUnit;
+    
+}
+//+ (Tone*) toneWithFrequency: (double) frequency;
++ (Tone2*) toneWithFrequency: (double) frequency phase: (double) angle;
++ (Tone2*) toneWithFrequency: (double) frequency duration: (double) seconds;
 - (void) play;
 - (void) stop;
 - (void) playForDuration: (double) seconds;

@@ -18,6 +18,7 @@
 		7609D8CF13A6ECD6000C0C7B /* Slice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8CE13A6ECD6000C0C7B /* Slice.m */; };
 		7609D90213A936A8000C0C7B /* Board-Events.m in Sources */ = {isa = PBXBuildFile; fileRef = 7609D90013A936A7000C0C7B /* Board-Events.m */; };
 		7613F0D913C7BA48007C4AC8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7613F0D813C7BA48007C4AC8 /* AVFoundation.framework */; };
+		7613F0DE13C7C645007C4AC8 /* Tone2.m in Sources */ = {isa = PBXBuildFile; fileRef = 7613F0DD13C7C644007C4AC8 /* Tone2.m */; };
 		76212C2813B907E30000C755 /* FIFO.m in Sources */ = {isa = PBXBuildFile; fileRef = 76212C2613B907E30000C755 /* FIFO.m */; };
 		769F4B6213AE902800384C14 /* MosaicTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 769F4B6113AE902800384C14 /* MosaicTexture.png */; };
 		769F4B8113AEBF0400384C14 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769F4B8013AEBF0400384C14 /* AudioToolbox.framework */; };
@@ -54,12 +55,12 @@
 		7609D90113A936A7000C0C7B /* Board-Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Board-Events.h"; sourceTree = "<group>"; };
 		7613F0D813C7BA48007C4AC8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		7613F0DB13C7C4D8007C4AC8 /* BoardView-Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BoardView-Private.h"; sourceTree = "<group>"; };
+		7613F0DC13C7C644007C4AC8 /* Tone2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tone2.h; sourceTree = "<group>"; };
+		7613F0DD13C7C644007C4AC8 /* Tone2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tone2.m; sourceTree = "<group>"; };
 		76212C2613B907E30000C755 /* FIFO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIFO.m; sourceTree = "<group>"; };
 		76212C2713B907E30000C755 /* FIFO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFO.h; sourceTree = "<group>"; };
 		769F4B6113AE902800384C14 /* MosaicTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MosaicTexture.png; sourceTree = "<group>"; };
 		769F4B8013AEBF0400384C14 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
-		769F4B8613AECC0E00384C14 /* ToneKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToneKit.h; sourceTree = "<group>"; };
-		769F4B8713AECC0E00384C14 /* ToneKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToneKit.m; sourceTree = "<group>"; };
 		76A2B10413B13356008E4B68 /* Tone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tone.h; sourceTree = "<group>"; };
 		76A2B10513B13356008E4B68 /* Tone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tone.m; sourceTree = "<group>"; };
 		76C6E59E13C0F40C002D069C /* Sample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sample.h; sourceTree = "<group>"; };
@@ -179,14 +180,14 @@
 		769F4B8213AEBF1000384C14 /* ToneKit */ = {
 			isa = PBXGroup;
 			children = (
-				769F4B8613AECC0E00384C14 /* ToneKit.h */,
-				769F4B8713AECC0E00384C14 /* ToneKit.m */,
 				76A2B10413B13356008E4B68 /* Tone.h */,
 				76A2B10513B13356008E4B68 /* Tone.m */,
 				76212C2613B907E30000C755 /* FIFO.m */,
 				76212C2713B907E30000C755 /* FIFO.h */,
 				76C6E59E13C0F40C002D069C /* Sample.h */,
 				76C6E59F13C0F40C002D069C /* Sample.m */,
+				7613F0DC13C7C644007C4AC8 /* Tone2.h */,
+				7613F0DD13C7C644007C4AC8 /* Tone2.m */,
 			);
 			name = ToneKit;
 			sourceTree = "<group>";
@@ -326,6 +327,7 @@
 				76212C2813B907E30000C755 /* FIFO.m in Sources */,
 				76C6E5A013C0F40C002D069C /* Sample.m in Sources */,
 				76C6E5A413C0FC62002D069C /* BoardView.m in Sources */,
+				7613F0DE13C7C645007C4AC8 /* Tone2.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
