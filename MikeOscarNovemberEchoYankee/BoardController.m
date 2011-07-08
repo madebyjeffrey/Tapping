@@ -84,7 +84,7 @@
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView
 {
-    self.board = [[BoardView alloc] initWithFrame: [[UIScreen mainScreen] bounds]];
+    self.board = [[[BoardView alloc] initWithFrame: [[UIScreen mainScreen] bounds]] autorelease];
     self.view = self.board;
     
     [self.board setDelegate: self];

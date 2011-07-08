@@ -29,14 +29,12 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
 
     
     // Override point for customization after application launch.
-    self.window = [[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] applicationFrame]];
+    self.window = [[[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] applicationFrame]] autorelease];
     [self.window makeKeyAndVisible];
-    [self.window release]; // fix retain count
+
     
-    self.board = [[BoardController alloc] initWithNibName: nil bundle:nil];
+    self.board = [[[BoardController alloc] initWithNibName: nil bundle:nil] autorelease];
     [self.window addSubview: self.board.view];
-    
-    [self.board release]; // fix retain count
     
     return YES;
 }

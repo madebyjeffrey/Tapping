@@ -98,7 +98,7 @@
         self.buffer = FIFO_alloc(2048); // buffer for 100 ms
         self.condition = [[[NSCondition alloc] init] autorelease];
         self.needsAudio = YES; // queue it up right away
-        self.thread = [[NSThread alloc] initWithTarget: self selector: @selector(toneThread:) object: nil];
+        self.thread = [[[NSThread alloc] initWithTarget: self selector: @selector(toneThread:) object: nil] autorelease];
         
         
         // elements will go in here, can be individually added and removed

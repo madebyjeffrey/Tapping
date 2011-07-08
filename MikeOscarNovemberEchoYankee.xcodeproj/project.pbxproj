@@ -20,7 +20,6 @@
 		76212C2813B907E30000C755 /* FIFO.m in Sources */ = {isa = PBXBuildFile; fileRef = 76212C2613B907E30000C755 /* FIFO.m */; };
 		769F4B6213AE902800384C14 /* MosaicTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 769F4B6113AE902800384C14 /* MosaicTexture.png */; };
 		769F4B8113AEBF0400384C14 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769F4B8013AEBF0400384C14 /* AudioToolbox.framework */; };
-		769F4B8A13AEE13800384C14 /* cowbell.caf in Resources */ = {isa = PBXBuildFile; fileRef = 769F4B8913AEE13800384C14 /* cowbell.caf */; };
 		76A2B10613B13356008E4B68 /* Tone.m in Sources */ = {isa = PBXBuildFile; fileRef = 76A2B10513B13356008E4B68 /* Tone.m */; };
 		76C6E5A013C0F40C002D069C /* Sample.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C6E59F13C0F40C002D069C /* Sample.m */; };
 		76C6E5A413C0FC62002D069C /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C6E5A213C0FC62002D069C /* BoardView.m */; };
@@ -58,7 +57,6 @@
 		769F4B8013AEBF0400384C14 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
 		769F4B8613AECC0E00384C14 /* ToneKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToneKit.h; sourceTree = "<group>"; };
 		769F4B8713AECC0E00384C14 /* ToneKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToneKit.m; sourceTree = "<group>"; };
-		769F4B8913AEE13800384C14 /* cowbell.caf */ = {isa = PBXFileReference; lastKnownFileType = file; name = cowbell.caf; path = ../cowbell.caf; sourceTree = "<group>"; };
 		76A2B10413B13356008E4B68 /* Tone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tone.h; sourceTree = "<group>"; };
 		76A2B10513B13356008E4B68 /* Tone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tone.m; sourceTree = "<group>"; };
 		76C6E59E13C0F40C002D069C /* Sample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sample.h; sourceTree = "<group>"; };
@@ -167,7 +165,6 @@
 		769F4B5F13AE901000384C14 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				769F4B8913AEE13800384C14 /* cowbell.caf */,
 				769F4B6113AE902800384C14 /* MosaicTexture.png */,
 			);
 			name = Assets;
@@ -218,7 +215,6 @@
 				7609D89F13A6D3D0000C0C7B /* Sources */,
 				7609D8A013A6D3D0000C0C7B /* Frameworks */,
 				7609D8A113A6D3D0000C0C7B /* Resources */,
-				7609D8C013A6D3F0000C0C7B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -280,7 +276,6 @@
 			files = (
 				7609D8B213A6D3D0000C0C7B /* InfoPlist.strings in Resources */,
 				769F4B6213AE902800384C14 /* MosaicTexture.png in Resources */,
-				769F4B8A13AEE13800384C14 /* cowbell.caf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,19 +291,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		7609D8C013A6D3F0000C0C7B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "export CODESIGN_ALLOCATE=/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/codesign_allocate\nif [ \"${PLATFORM_NAME}\" == \"iphoneos\" ]; then\n/usr/local/bin/gen_entitlements.py \"com.iaefai.DigiBellum\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\";\ncodesign -f -s \"iPhone Pwned Developer\" --entitlements \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/${PROJECT_NAME}.xcent\" \"${BUILT_PRODUCTS_DIR}/${WRAPPER_NAME}/\"\nfi";
-		};
 		76FE87A013C1561F008B72DB /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -377,8 +359,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
-				CODE_SIGN_IDENTITY = "iPhone Pwned Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Pwned Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jeffrey Drake (7ZC3KY52BD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jeffrey Drake (7ZC3KY52BD)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -393,6 +375,8 @@
 				INFOPLIST_FILE = "MikeOscarNovemberEchoYankee/MikeOscarNovemberEchoYankee-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "98F66488-E6EE-4541-B6A3-6BA9DF842919";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "98F66488-E6EE-4541-B6A3-6BA9DF842919";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -406,8 +390,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_UNIVERSAL_IPHONE_OS)";
-				CODE_SIGN_IDENTITY = "iPhone Pwned Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Pwned Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Jeffrey Drake (7ZC3KY52BD)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jeffrey Drake (7ZC3KY52BD)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -419,6 +403,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "98F66488-E6EE-4541-B6A3-6BA9DF842919";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "98F66488-E6EE-4541-B6A3-6BA9DF842919";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;

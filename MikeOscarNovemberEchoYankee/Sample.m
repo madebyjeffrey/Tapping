@@ -42,7 +42,11 @@
 }
                   
 - (Sample*)copy {
+<<<<<<< HEAD
     Sample *ret = [[Sample alloc] initWithLength: [self capacity]];
+=======
+    Sample *ret = [[Sample alloc] initWithCapacity: [self capacity]];
+>>>>>>> Fixed some memory management issues
     
     memcpy(ret->buffer, self->buffer, self.count);
     ret->end = ret->buffer + (ret->end - ret->buffer);
@@ -111,7 +115,7 @@
                                      userInfo: nil];
     }
     
-    Sample *sample = [[Sample alloc] initWithLength: count];
+    Sample *sample = [[Sample alloc] initWithCapacity: count];
     
     if (sample) {
         [sample enqueueSamples: buffer count: count];
