@@ -10,9 +10,14 @@
 
 //#include <arm_neon.h>
 
+@interface BoardController ()
+@property (retain) NSMutableArray *tones;
+@end
+
 @implementation BoardController
 
 @synthesize board, tones;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

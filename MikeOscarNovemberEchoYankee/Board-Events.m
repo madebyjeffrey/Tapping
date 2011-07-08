@@ -9,18 +9,24 @@
 #import "Board-Events.h"
 #import "BoardView-Private.h"
 
+/*
+    For next fix up - try again to not store UITouch objects
+ 
+ */
+
 @implementation BoardView (Events)
 
 - (int) insideButton: (CGPoint) p {
-    CGAffineTransform centre = CGAffineTransformMakeTranslation(self.bounds.size.width / 2, self.bounds.size.height / 2);
-    
+    CGPoint test = p;
     int i = 0;
     
     for (CAShapeLayer *shape in self.slices) {
         UIBezierPath *path = [UIBezierPath bezierPathWithCGPath: shape.path];
-        [path applyTransform: centre];
+
         
-        if ([path containsPoint: p]) {
+        test = [shape convertPoint: p fromLayer: [shape superlayer]];
+        
+        if ([path containsPoint: test]) {
             return i;
         }
         i++;
