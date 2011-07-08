@@ -270,7 +270,7 @@ OSStatus RenderTone(
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
     // take inNumberFrames samples
-    Tone *this = (Tone*)inRefCon;
+    Tone *this = (__bridge Tone*)inRefCon;
     
     [this.condition lock];
     
@@ -326,7 +326,7 @@ OSStatus RenderTone(
 	// Set our tone rendering function on the unit
 	AURenderCallbackStruct input;
 	input.inputProc = RenderTone;
-	input.inputProcRefCon = self;
+	input.inputProcRefCon = (__bridge void*)self;
     
 	err = AudioUnitSetProperty(toneUnit, 
                                kAudioUnitProperty_SetRenderCallback, 

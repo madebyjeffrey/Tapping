@@ -8,12 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
+
 #import "BoardController.h"
 
-@interface AppDelegate : NSObject <UIApplicationDelegate> {
+@interface AppDelegate : NSObject <UIApplicationDelegate, AVAudioSessionDelegate> {
 
 }
 
 @property (nonatomic, retain) UIWindow *window;
 @property (retain) BoardController *board;
+
 @end

@@ -17,6 +17,7 @@
 		7609D8CC13A6D6C6000C0C7B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7609D8CB13A6D6C6000C0C7B /* CoreGraphics.framework */; };
 		7609D8CF13A6ECD6000C0C7B /* Slice.m in Sources */ = {isa = PBXBuildFile; fileRef = 7609D8CE13A6ECD6000C0C7B /* Slice.m */; };
 		7609D90213A936A8000C0C7B /* Board-Events.m in Sources */ = {isa = PBXBuildFile; fileRef = 7609D90013A936A7000C0C7B /* Board-Events.m */; };
+		7613F0D913C7BA48007C4AC8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7613F0D813C7BA48007C4AC8 /* AVFoundation.framework */; };
 		76212C2813B907E30000C755 /* FIFO.m in Sources */ = {isa = PBXBuildFile; fileRef = 76212C2613B907E30000C755 /* FIFO.m */; };
 		769F4B6213AE902800384C14 /* MosaicTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 769F4B6113AE902800384C14 /* MosaicTexture.png */; };
 		769F4B8113AEBF0400384C14 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769F4B8013AEBF0400384C14 /* AudioToolbox.framework */; };
@@ -51,6 +52,7 @@
 		7609D8CE13A6ECD6000C0C7B /* Slice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Slice.m; sourceTree = "<group>"; };
 		7609D90013A936A7000C0C7B /* Board-Events.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Board-Events.m"; sourceTree = "<group>"; };
 		7609D90113A936A7000C0C7B /* Board-Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Board-Events.h"; sourceTree = "<group>"; };
+		7613F0D813C7BA48007C4AC8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		76212C2613B907E30000C755 /* FIFO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIFO.m; sourceTree = "<group>"; };
 		76212C2713B907E30000C755 /* FIFO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFO.h; sourceTree = "<group>"; };
 		769F4B6113AE902800384C14 /* MosaicTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MosaicTexture.png; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7613F0D913C7BA48007C4AC8 /* AVFoundation.framework in Frameworks */,
 				76FE87BA13C18CB8008B72DB /* Accelerate.framework in Frameworks */,
 				769F4B8113AEBF0400384C14 /* AudioToolbox.framework in Frameworks */,
 				7609D8CC13A6D6C6000C0C7B /* CoreGraphics.framework in Frameworks */,
@@ -154,6 +157,7 @@
 		7623190513A6D2B4004BF0E3 = {
 			isa = PBXGroup;
 			children = (
+				7613F0D813C7BA48007C4AC8 /* AVFoundation.framework */,
 				7609D8AD13A6D3D0000C0C7B /* MikeOscarNovemberEchoYankee */,
 				769F4B5F13AE901000384C14 /* Assets */,
 				76FE87A613C15620008B72DB /* SampleTests */,

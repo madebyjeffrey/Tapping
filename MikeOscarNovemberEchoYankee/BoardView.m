@@ -82,14 +82,14 @@
 
 - (void)dealloc
 {
-    [super dealloc];
-    
     for (CALayer *layer in self.layer.sublayers)
         [layer removeFromSuperlayer];
+  
+    [self.slices removeAllObjects];
     
-    for (CAShapeLayer *s in self.slices) {
-        [s autorelease];
-    }
+    self.slices = nil;
+
+    [super dealloc];
 }
 
 - (void) setButtonPressed: (int) n {

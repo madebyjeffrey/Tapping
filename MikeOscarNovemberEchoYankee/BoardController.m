@@ -89,7 +89,7 @@
     
     [self.board setDelegate: self];
     
-    self.view.layer.contents = (id)[UIImage imageNamed: @"MosaicTexture.png"].CGImage;
+    self.view.layer.contents = (__bridge id)[UIImage imageNamed: @"MosaicTexture.png"].CGImage;
     
     
 }

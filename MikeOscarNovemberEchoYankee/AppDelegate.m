@@ -19,14 +19,31 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
  
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    OSStatus result = AudioSessionInitialize(NULL, NULL, ToneInterruptionListener, self);
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    NSError *error = nil;
+    BOOL result = NO;
     
-    if (result == kAudioSessionNoError)
+    result = [session setActive: YES error: &error];
+    
+    if (result == NO) {
+        if (error) {
+            NSLog(@"Could not initialize the audio system: %@", [error localizedDescription]);            
+        } else {
+            NSLog(@"Could not initialize the audio system.");
+        }
+    }
+    
+    session.delegate = self;
+    
+    
+//    OSStatus result = AudioSessionInitialize(NULL, NULL, ToneInterruptionListener, (void*)self);
+//    OSStatus result = AudioSessionInitialize(NULL, NULL, ToneInterruptionListener, (__bridge self);
+/*    if (result == kAudioSessionNoError)
     {
         UInt32 sessionCategory = kAudioSessionCategory_MediaPlayback;
         AudioSessionSetProperty(kAudioSessionProperty_AudioCategory, sizeof(sessionCategory), &sessionCategory);
     }
-
+*/
     
     // Override point for customization after application launch.
     self.window = [[[UIWindow alloc] initWithFrame: [[UIScreen mainScreen] applicationFrame]] autorelease];
@@ -76,6 +93,22 @@ void ToneInterruptionListener(void *inClientData, UInt32 inInterruptionState)
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+
+- (void)beginInterruption {
+    
+}
+
+- (void)endInterruption {
+
+}
+
+- (void)endInterruptionWithFlags:(NSUInteger)flags {
+    
+}
+
+- (void)inputIsAvailableChanged:(BOOL)isInputAvailable {
+    
 }
 
 - (void)dealloc
