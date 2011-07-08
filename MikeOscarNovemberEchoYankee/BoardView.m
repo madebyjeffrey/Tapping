@@ -82,11 +82,6 @@
 
 - (void)dealloc
 {
-    for (CALayer *layer in self.layer.sublayers)
-        [layer removeFromSuperlayer];
-  
-    [self.slices removeAllObjects];
-    
     self.slices = nil;
 
     [super dealloc];
