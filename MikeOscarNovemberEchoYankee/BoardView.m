@@ -9,18 +9,19 @@
 #import "Boardview.h"
 #import "Slice.h"
 
-
+#import "BoardView-Private.h"
 
 @implementation TrackedLocation
 
 @synthesize location, button;
 
 + (TrackedLocation*) location {
-    id this = [[TrackedLocation alloc] init];
-    
-    return [this autorelease];
+    return [[[self alloc] init] autorelease];
 }
+
 @end
+
+
 
 @implementation BoardView
 
@@ -82,8 +83,7 @@
 
 - (void)dealloc
 {
-    self.slices = nil;
-
+    self.slices = nil;    
     [super dealloc];
 }
 

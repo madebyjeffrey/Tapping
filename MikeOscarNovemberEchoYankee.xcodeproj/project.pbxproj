@@ -53,6 +53,7 @@
 		7609D90013A936A7000C0C7B /* Board-Events.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Board-Events.m"; sourceTree = "<group>"; };
 		7609D90113A936A7000C0C7B /* Board-Events.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Board-Events.h"; sourceTree = "<group>"; };
 		7613F0D813C7BA48007C4AC8 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7613F0DB13C7C4D8007C4AC8 /* BoardView-Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BoardView-Private.h"; sourceTree = "<group>"; };
 		76212C2613B907E30000C755 /* FIFO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIFO.m; sourceTree = "<group>"; };
 		76212C2713B907E30000C755 /* FIFO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFO.h; sourceTree = "<group>"; };
 		769F4B6113AE902800384C14 /* MosaicTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MosaicTexture.png; sourceTree = "<group>"; };
@@ -133,6 +134,7 @@
 				7609D8C113A6D66E000C0C7B /* BoardController.h */,
 				7609D8C213A6D66E000C0C7B /* BoardController.m */,
 				76C6E5A213C0FC62002D069C /* BoardView.m */,
+				7613F0DB13C7C4D8007C4AC8 /* BoardView-Private.h */,
 				76C6E5A313C0FC62002D069C /* BoardView.h */,
 				7609D90113A936A7000C0C7B /* Board-Events.h */,
 				7609D90013A936A7000C0C7B /* Board-Events.m */,

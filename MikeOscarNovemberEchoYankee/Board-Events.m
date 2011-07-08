@@ -7,6 +7,7 @@
 //
 
 #import "Board-Events.h"
+#import "BoardView-Private.h"
 
 @implementation BoardView (Events)
 
@@ -19,7 +20,7 @@
         UIBezierPath *path = [UIBezierPath bezierPathWithCGPath: shape.path];
         [path applyTransform: centre];
         
-        if ([path containsPoint: p] == YES) {
+        if ([path containsPoint: p]) {
             return i;
         }
     }
@@ -34,7 +35,7 @@
         UIBezierPath *path = [UIBezierPath bezierPathWithCGPath: shape.path];
         [path applyTransform: centre];
         
-        if ([path containsPoint: [touch locationInView: self]] == YES) {
+        if ([path containsPoint: [touch locationInView: self]]) {
             return YES;
         }
     }
@@ -54,7 +55,7 @@
     // touches over a button go in trackedTouches others in ignoredTouches
     
     for (UITouch *touch in touches) {
-        if ([self isInsideSlice: touch] == YES)
+        if ([self isInsideSlice: touch])
             [self.trackedTouches addObject: touch];
         else
             [self.ignoredTouches addObject: touch];
@@ -111,7 +112,7 @@
         // if no previous state, only send presses
         
         for (i = 0; i < 6; i++) {
-            if ([sliceChanges objectAtIndex: i] == [NSNumber numberWithBool: YES]) {
+            if ([[sliceChanges objectAtIndex: i] boolValue]) {
                 [self setButtonPressed: i];
                 [self.delegate sliceTouched: i];
             }
@@ -124,7 +125,7 @@
         // if we have previous state compare the two and send changes
         for (i = 0; i< 6; i++) {
             if ([[sliceChanges objectAtIndex: i] boolValue] != [[self.slicePreviousStatus objectAtIndex: i] boolValue]) {
-                if ([[sliceChanges objectAtIndex: i] boolValue] == YES) {
+                if ([[sliceChanges objectAtIndex: i] boolValue]) {
                     [self setButtonPressed: i];
                     [self.delegate sliceTouched: i];
                 }
