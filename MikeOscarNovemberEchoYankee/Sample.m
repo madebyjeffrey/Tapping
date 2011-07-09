@@ -30,30 +30,34 @@
 }
 
 - (id) init {
-    self = [super init];
+//    self = [super init];
     
-    if (self) {
-        self->buffer = NULL;
+//    if (self) {
+/*        self->buffer = NULL;
         self->end = NULL;
-        self->max_length = 0;
-    }
+        self->max_length = 0; */
+        
+  //  }
     
-    return self;
+//    return self;
+    
+    return [self initWithCapacity: 2048];
 }
                   
 - (Sample*)copy {
     Sample *ret = [[Sample alloc] initWithCapacity: [self capacity]];
     
-    memcpy(ret->buffer, self->buffer, self.count);
+    memcpy(ret->buffer, buffer, self.count);
     ret->end = ret->buffer + (ret->end - ret->buffer);
-    ret->max_length = self->max_length;
+    ret->max_length = max_length;
     
     return ret;
 }
                 
 
 - (id) initWithCapacity: (size_t) capacity {
-    self = [self init];
+//    self = [self init];
+    self = [super init];
     
     if (self) {
         self->buffer = malloc(capacity * sizeof(float));
@@ -80,10 +84,8 @@
 
 }
 
-+ (Sample*) sampleWithCapacity: (size_t) capacity {
-    Sample *sample = [[Sample alloc] initWithCapacity: capacity];
-    
-    return [sample autorelease];
++ (id) sampleWithCapacity: (size_t) capacity {
+    return [[[Sample alloc] initWithCapacity: capacity] autorelease];
 }
 
 - (size_t) count {
@@ -100,69 +102,95 @@
     return self.capacity - self.count;
 }
 
-- (Sample*) dequeue: (size_t) count {
+- (Sample*) dequeue: (size_t) count error: (NSError**) error {
 
     // Test 1: Do we have the samples
-    if (self.count > count) {
-        // We do not have the samples
-        @throw [NSException exceptionWithName:NSRangeException 
-                                       reason: [NSString stringWithFormat: @"You wanted %d samples, there are only %d samples.", count, 
-                                                [self count]] 
-                                     userInfo: nil];
+    if (self.count < count) {
+        if (error) { 
+            
+            // We do not have the samples
+            *error = [NSError errorWithDomain: @"RangeError" 
+                                         code: 1 
+                                     userInfo: [NSDictionary dictionaryWithObject: 
+                                                [NSString stringWithFormat: @"You wanted %d samples, there are only %d samples.", count, [self count]]
+                                                                           forKey: NSLocalizedDescriptionKey]];
+
+            return nil;
+        }
     }
     
     Sample *sample = [[Sample alloc] initWithCapacity: count];
     
     if (sample) {
-        [sample enqueueSamples: buffer count: count];
-        [self removeSamples: count];
+        [sample enqueueSamples: buffer count: count error: nil];
+        [self removeSamples: count error: error];
     }
     
     return [sample autorelease];
 }
 
-- (void) dequeueSamples: (float*) samples count: (size_t) count {
+- (BOOL) dequeueSamples: (float*) samples count: (size_t) count error: (NSError**) error {
     NSAssert(buffer != NULL, @"Structure not allocated");
     NSAssert(samples != NULL, @"destination is not allocated");
     
     if (self.count < count) {
-        @throw [NSException exceptionWithName:NSRangeException 
-                                       reason: [NSString stringWithFormat: @"You wanted to copy %d samples, but there are only %d samples.", count, self.count] 
-                                     userInfo: nil];
+        if (error) { 
+            
+            // We do not have the samples
+            *error = [NSError errorWithDomain: @"RangeError" 
+                                         code: 1 
+                                     userInfo: [NSDictionary dictionaryWithObject: 
+                                                [NSString stringWithFormat: @"You wanted %d samples, there are only %d samples.", count, [self count]]
+                                                                           forKey: NSLocalizedDescriptionKey]];
+            
+            return NO;
+        }
     }
     
     memcpy(samples, self->buffer, count);
     
-    [self removeSamples: count];
-}
-
-
-- (void) enqueue: (Sample*) samples {
-    NSAssert(buffer != NULL, @"Structure not allocated");
+    [self removeSamples: count error: nil];
     
-    [self enqueueSamples: samples->buffer count: [samples count]];
+    return YES;
 }
 
-- (void) enqueueSamples: (float*) samples count: (size_t) length {
+
+- (BOOL) enqueue: (Sample*) samples error: (NSError**) error {
+    
+    return [self enqueueSamples: samples->buffer count: [samples count] error: error];
+}
+
+- (BOOL) enqueueSamples: (float*) samples count: (size_t) length error: (NSError**) error {
     NSAssert(buffer != NULL, @"Structure not allocated");
     
     // Test 2: Do we have the space?
     size_t delta = self.capacity - self.count;
     if (length > delta) {
         // We do not - make it expand in future?
-        @throw [NSException exceptionWithName:NSRangeException 
-                                       reason: 
-                [NSString stringWithFormat: @"You wanted to import %d samples, but there is only room for %d samples.", length, delta] 
-                                     userInfo: nil];
+        if (error) { 
+            
+            // We do not have the samples
+            *error = [NSError errorWithDomain: @"RangeError" 
+                                         code: 1 
+                                     userInfo: [NSDictionary dictionaryWithObject: 
+                                                [NSString stringWithFormat: @"You wanted to import %d samples, but there is only room for %d samples.", length, delta]
+                                                                    forKey: NSLocalizedDescriptionKey]];
+            
+
+        }
+        return NO; 
+
     }    
     
     // no way to check if worked or failed
     memcpy(self->end, samples, length);
     
     self->end += length;
+    
+    return YES;
 }
 
-- (void) removeSamples: (size_t) count {
+- (BOOL) removeSamples: (size_t) count error: (NSError**) error {
     NSAssert(buffer != NULL, @"Structure not allocated");
     
     // Do we have the samples to remove?
@@ -173,12 +201,23 @@
         memmove(buffer, end - delta, delta);
         
         end -= delta;
+
+        return YES;
     }
     else {
         // no
-        @throw [NSException exceptionWithName:NSRangeException 
-                                       reason: [NSString stringWithFormat: @"You wanted to remove %d samples, but there are only %d samples.", count, [self count]] 
-                                     userInfo: nil];
+        if (error) { 
+            
+            // We do not have the samples
+            *error = [NSError errorWithDomain: @"RangeError" 
+                                         code: 1 
+                                     userInfo: [NSDictionary dictionaryWithObject: 
+                                                [NSString stringWithFormat: @"You wanted to remove %d samples, but there are only %d samples.", count, [self count]]
+                                                                           forKey: NSLocalizedDescriptionKey]];
+            
+        }
+        return NO;
+
     }
 }
 

@@ -68,10 +68,10 @@
     
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
-    while ([[NSThread currentThread] isCancelled] == NO) {
+    while (![[NSThread currentThread] isCancelled]) {
         [self.condition lock];
         
-        while (self.needsAudio == NO) {
+        while (!self.needsAudio) {
             [self.condition wait];
         }
         
@@ -92,7 +92,7 @@
             BOOL result = self.generator(self.state, samples_needed, samples);
             
             // if generated right
-            if (result == YES) {
+            if (result) {
                 // copy results into the buffer
                 /*result =*/ FIFO_push(thebuffer, samples, samples_needed);
             
@@ -126,7 +126,7 @@
 
             id val = nil;
             
-            if (sample == NULL) 
+            if (!sample) 
                 return NO;
             
             if ((val = [state objectForKey: @"Sample Rate"]) != nil)
@@ -173,7 +173,7 @@
     return nil;
 }
 - (void) play {
-    if (self.playing == YES) return;
+    if (self.playing) return;
     
     [self activateAudio];
 

@@ -160,7 +160,7 @@
     
     for (int i = 0; i < 6; i++) {
         l = [CAShapeLayer layer];
-        UIBezierPath *path = [self sliceFrom: i*PI/3 to: i*PI/3+PI/3];
+        UIBezierPath *path = [self sliceFrom: i*M_PI/3 to: i*M_PI/3+M_PI/3];
 
         CGPoint p = [[self.slicePositions objectAtIndex: i] CGPointValue];
         

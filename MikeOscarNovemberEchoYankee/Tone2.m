@@ -62,7 +62,7 @@
         if (theta > (2*M_PI)) theta -= 2 * M_PI;
     }
     
-    [self.buffer enqueueSamples: buf count: count];
+    [self.buffer enqueueSamples: buf count: count error: nil];
     
     free(buf);
     

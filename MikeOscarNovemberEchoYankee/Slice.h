@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-#include <math.h>
-
-extern const double PI;
 
 CGPoint CGPointAdd(CGPoint a, CGPoint b);
 CGPoint positionFromAngle(double theta, double distance, double radius);

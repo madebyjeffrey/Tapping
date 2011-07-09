@@ -19,6 +19,8 @@
 		7609D90213A936A8000C0C7B /* Board-Events.m in Sources */ = {isa = PBXBuildFile; fileRef = 7609D90013A936A7000C0C7B /* Board-Events.m */; };
 		7613F0D913C7BA48007C4AC8 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7613F0D813C7BA48007C4AC8 /* AVFoundation.framework */; };
 		7613F0DE13C7C645007C4AC8 /* Tone2.m in Sources */ = {isa = PBXBuildFile; fileRef = 7613F0DD13C7C644007C4AC8 /* Tone2.m */; };
+		7613F0E113C7D0C0007C4AC8 /* Sound.m in Sources */ = {isa = PBXBuildFile; fileRef = 7613F0E013C7D0BF007C4AC8 /* Sound.m */; };
+		7613F0E413C803F6007C4AC8 /* AudioUnit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7613F0E313C803F6007C4AC8 /* AudioUnit.m */; };
 		76212C2813B907E30000C755 /* FIFO.m in Sources */ = {isa = PBXBuildFile; fileRef = 76212C2613B907E30000C755 /* FIFO.m */; };
 		769F4B6213AE902800384C14 /* MosaicTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 769F4B6113AE902800384C14 /* MosaicTexture.png */; };
 		769F4B8113AEBF0400384C14 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769F4B8013AEBF0400384C14 /* AudioToolbox.framework */; };
@@ -57,6 +59,10 @@
 		7613F0DB13C7C4D8007C4AC8 /* BoardView-Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BoardView-Private.h"; sourceTree = "<group>"; };
 		7613F0DC13C7C644007C4AC8 /* Tone2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tone2.h; sourceTree = "<group>"; };
 		7613F0DD13C7C644007C4AC8 /* Tone2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tone2.m; sourceTree = "<group>"; };
+		7613F0DF13C7D0BF007C4AC8 /* Sound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sound.h; sourceTree = "<group>"; };
+		7613F0E013C7D0BF007C4AC8 /* Sound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sound.m; sourceTree = "<group>"; };
+		7613F0E213C803F5007C4AC8 /* AudioUnit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioUnit.h; sourceTree = "<group>"; };
+		7613F0E313C803F6007C4AC8 /* AudioUnit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioUnit.m; sourceTree = "<group>"; };
 		76212C2613B907E30000C755 /* FIFO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FIFO.m; sourceTree = "<group>"; };
 		76212C2713B907E30000C755 /* FIFO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FIFO.h; sourceTree = "<group>"; };
 		769F4B6113AE902800384C14 /* MosaicTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MosaicTexture.png; sourceTree = "<group>"; };
@@ -188,6 +194,10 @@
 				76C6E59F13C0F40C002D069C /* Sample.m */,
 				7613F0DC13C7C644007C4AC8 /* Tone2.h */,
 				7613F0DD13C7C644007C4AC8 /* Tone2.m */,
+				7613F0DF13C7D0BF007C4AC8 /* Sound.h */,
+				7613F0E013C7D0BF007C4AC8 /* Sound.m */,
+				7613F0E213C803F5007C4AC8 /* AudioUnit.h */,
+				7613F0E313C803F6007C4AC8 /* AudioUnit.m */,
 			);
 			name = ToneKit;
 			sourceTree = "<group>";
@@ -328,6 +338,8 @@
 				76C6E5A013C0F40C002D069C /* Sample.m in Sources */,
 				76C6E5A413C0FC62002D069C /* BoardView.m in Sources */,
 				7613F0DE13C7C645007C4AC8 /* Tone2.m in Sources */,
+				7613F0E113C7D0C0007C4AC8 /* Sound.m in Sources */,
+				7613F0E413C803F6007C4AC8 /* AudioUnit.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

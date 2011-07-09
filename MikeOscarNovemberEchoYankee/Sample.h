@@ -27,25 +27,25 @@
 
 // Initialize with size
 - (id) initWithCapacity: (size_t) capacity;
-+ (Sample*) sampleWithCapacity: (size_t) capacity;
++ (id) sampleWithCapacity: (size_t) capacity;
 
 
 // Append another sample to the end
-- (void) enqueue: (Sample*) samples;
+- (BOOL) enqueue: (Sample*) samples error: (NSError**) error;
 
 // add floats to the end of the structure
-- (void) enqueueSamples: (float*) samples count: (size_t) count;
+- (BOOL) enqueueSamples: (float*) samples count: (size_t) length error: (NSError**) error;
 
 // take samples from the beginning in a new Sample
-- (Sample*) dequeue: (size_t) count;
+- (Sample*) dequeue: (size_t) count error: (NSError**) error;
 
 // copies samples to a buffer
-- (void) dequeueSamples: (float*) samples count: (size_t) count;
+- (BOOL) dequeueSamples: (float*) samples count: (size_t) count error: (NSError**) error;
 
 
 
 // Remove samples
-- (void) removeSamples: (size_t) count;
+- (BOOL) removeSamples: (size_t) count error: (NSError**) error;
 
 // Max size
 - (size_t) capacity;

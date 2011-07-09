@@ -8,9 +8,6 @@
 
 #include "Slice.h"
 
-const double PI = 3.141592653589793;
-
-
 CGPoint CGPointAdd(CGPoint a, CGPoint b) {
     a.x += b.x;
     a.y += b.y;
