@@ -29,18 +29,16 @@
     return self;
 }
 
+- (Sample*) fill: (float) sample {
+    if (!buffer) return self;
+    
+    memset_pattern4(buffer, &sample, max_length * sizeof(float));
+    end = buffer + max_length;
+    
+    return self;
+}
+
 - (id) init {
-//    self = [super init];
-    
-//    if (self) {
-/*        self->buffer = NULL;
-        self->end = NULL;
-        self->max_length = 0; */
-        
-  //  }
-    
-//    return self;
-    
     return [self initWithCapacity: 2048];
 }
                   

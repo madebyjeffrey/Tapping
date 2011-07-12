@@ -10,7 +10,7 @@
 
 #import "BoardView.h"
 
-#import "Tone.h"
+#import "Note.h"
 
 @interface BoardController : UIViewController <BoardDelegate>{
     

@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <AudioUnit/AudioUnit.h>
 
+#import "Sample.h"
+
 @interface AUAudioUnit : NSObject {
     AudioComponentInstance unit;
 }
@@ -29,6 +31,11 @@
 - (void) initialize;
 - (void) uninitialize;
 
-@property (retain) id<Source> source;
+- (Sample*) renderSamples: (size_t) count;
+
+- (void) play;
+- (void) stop;
 
 @end
+
+

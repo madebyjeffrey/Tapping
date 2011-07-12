@@ -7,7 +7,7 @@
 //
 
 #import "AudioUnit.h"
-#import "Sample.h"
+
 
 @implementation AUAudioUnit
 
@@ -24,6 +24,13 @@
 @end
 
 
+/*
+ 
+ 
+ Idea: Make the audio output unit to be the superclass of the note.
+ 
+ */
+
 static OSStatus RenderOutput(
                            void *inRefCon, 
                            AudioUnitRenderActionFlags 	*ioActionFlags, 
@@ -39,14 +46,16 @@ static OSStatus RenderOutput(
         // take inNumberFrames samples
         AudioOutput *self = (__bridge AudioOutput*)inRefCon;
         
-        if (!self.source) {
+/*        if (!self.source) {
             NSLog(@"RenderOutput: no buffer source.");
             return -1;
         }
+  */      
+        Sample *samples = [self renderSamples: inNumberFrames];
         
-        Sample *samples = nil;
-        
-        samples = [self.source samples: inNumberFrames];             // errors to be caught inside this function
+        if ([samples count] < inNumberFrames)
+            NSLog(@"Buffer under run!");
+//        samples = [self.source samples: inNumberFrames];             // errors to be caught inside this function
 
         NSError *error = nil;
         
@@ -62,14 +71,10 @@ static OSStatus RenderOutput(
 
 @implementation AudioOutput
 
-@synthesize source;
-
 - (id) init {
     self = [super init];
     
     if (self) {
-        source = nil;
-        
         AudioComponentDescription defaultOutputDescription = {
             .componentType = kAudioUnitType_Output,
             .componentSubType = kAudioUnitSubType_RemoteIO,
@@ -98,11 +103,10 @@ static OSStatus RenderOutput(
                                    0,
                                    &input,
                                    sizeof(input));
-        NSAssert1(err = noErr, @"Error setting callback: %ld", err);
+        NSAssert1(err == noErr, @"Error setting callback: %ld", err);
         
         // Set the format to 32 bit, single channel, floating point, linear PCM
         [self setFormatWithSampleRate: 44100 stereo: NO];
-                                   
     }
     
     return self;
@@ -145,8 +149,29 @@ static OSStatus RenderOutput(
     }
 }
 
+- (void) play {
+    [self initialize];
+    
+    
+    OSStatus err = AudioOutputUnitStart(unit);
+    NSAssert1(err == noErr, @"Error starting unit: %ld", err);
+
+}
+
+- (void) stop {
+    OSErr err = AudioOutputUnitStop(unit);
+    NSAssert1(err == noErr, @"Error stopping unit: %ld", err);
+    
+    [self uninitialize];
+}
+
 + (id) audioOutput {
     return [[[self alloc] init] autorelease];
+}
+
+- (Sample*) renderSamples: (size_t) count {
+    // default renders a zero pattern
+    return [[Sample sampleWithCapacity: count] fill: 0.0];
 }
 
 @end

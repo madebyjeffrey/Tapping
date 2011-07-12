@@ -11,12 +11,12 @@
 //#include <arm_neon.h>
 
 @interface BoardController ()
-@property (retain) NSMutableArray *tones;
+@property (retain) NSMutableArray *notes;
 @end
 
 @implementation BoardController
 
-@synthesize board, tones;
+@synthesize board, notes;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -37,12 +37,12 @@
                                                        [Tone toneWithFrequency: 523.25],
                                                        [Tone toneWithFrequency: 587.33], nil]; */
         
-        self.tones = [NSMutableArray arrayWithObjects: [Tone toneWithFrequency: 349.23 phase: 0],
-                      [Tone toneWithFrequency: 440 phase: 0],
-                      [Tone toneWithFrequency: 493.88 phase: 0],
-                      [Tone toneWithFrequency: 523.25 phase: 0],
-                      [Tone toneWithFrequency: 659.26 phase: 0],
-                      [Tone toneWithFrequency: 698.46 phase: 0], nil];
+        self.notes = [NSMutableArray arrayWithObjects: [Note noteWithFrequency: 349.23],
+                      [Note noteWithFrequency: 440],
+                      [Note noteWithFrequency: 493.88],
+                      [Note noteWithFrequency: 523.25],
+                      [Note noteWithFrequency: 659.26],
+                      [Note noteWithFrequency: 698.46], nil];
 
 /*        self.tones = [NSMutableArray arrayWithObjects: [Tone toneWithFrequency: 440 phase: 0],
                       [Tone toneWithFrequency: 440*2 phase: 0],
@@ -100,25 +100,25 @@
 }
 
 - (void) sliceTouched: (int) n {
-    NSLog(@"Slice %d touched", n);
+//    NSLog(@"Slice %d touched", n);
   
   //  [audioFile play];
 //    [self.board setButtonPressed: n];
     
 //    [[ToneKit sharedToneKit] playTone: 440];
     
-    [[self.tones objectAtIndex: n] play];
+    [[self.notes objectAtIndex: n] play];
     
     
 }
 
 - (void) sliceUntouched: (int) n {
     
-    NSLog(@"Slice %d untouched", n);
+ //   NSLog(@"Slice %d untouched", n);
 //    [self.board setButtonNormal: n];
     
 //    [[ToneKit sharedToneKit] stop];
-    [[self.tones objectAtIndex: n] stop];
+    [[self.notes objectAtIndex: n] stop];
 }
 
 /*
@@ -149,3 +149,6 @@
 
 
 @end
+
+
+

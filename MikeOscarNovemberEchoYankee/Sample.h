@@ -42,7 +42,8 @@
 // copies samples to a buffer
 - (BOOL) dequeueSamples: (float*) samples count: (size_t) count error: (NSError**) error;
 
-
+// fills buffer with single sample
+- (Sample*) fill: (float) sample;
 
 // Remove samples
 - (BOOL) removeSamples: (size_t) count error: (NSError**) error;
