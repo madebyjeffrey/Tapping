@@ -23,7 +23,7 @@
     size_t max_length;
 }
 
-- (Sample*) multiplyBy: (Sample*) sample;
+//- (Sample*) multiplyBy: (Sample*) sample;
 
 // Initialize with size
 - (id) initWithCapacity: (size_t) capacity;

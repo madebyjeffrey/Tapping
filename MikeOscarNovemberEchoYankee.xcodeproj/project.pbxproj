@@ -22,15 +22,16 @@
 		7671E82313CB6D7B001920A7 /* Note.m in Sources */ = {isa = PBXBuildFile; fileRef = 7671E82213CB6D7B001920A7 /* Note.m */; };
 		769F4B6213AE902800384C14 /* MosaicTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 769F4B6113AE902800384C14 /* MosaicTexture.png */; };
 		769F4B8113AEBF0400384C14 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769F4B8013AEBF0400384C14 /* AudioToolbox.framework */; };
+		76B2B28F13CCB2AE00E27B2B /* JDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B2B28E13CCB2AE00E27B2B /* JDQueue.m */; };
+		76B2B29013CCBE0400E27B2B /* JDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B2B28E13CCB2AE00E27B2B /* JDQueue.m */; };
 		76C6E5A013C0F40C002D069C /* Sample.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C6E59F13C0F40C002D069C /* Sample.m */; };
 		76C6E5A413C0FC62002D069C /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C6E5A213C0FC62002D069C /* BoardView.m */; };
 		76FE87A313C1561F008B72DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7609D8C913A6D6C1000C0C7B /* UIKit.framework */; };
 		76FE87A413C15620008B72DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7609D8A913A6D3D0000C0C7B /* Foundation.framework */; };
 		76FE87A513C15620008B72DB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7609D8CB13A6D6C6000C0C7B /* CoreGraphics.framework */; };
 		76FE87AB13C15620008B72DB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 76FE87A913C15620008B72DB /* InfoPlist.strings */; };
-		76FE87AE13C15620008B72DB /* SampleTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 76FE87AD13C15620008B72DB /* SampleTests.h */; };
-		76FE87B013C15620008B72DB /* SampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FE87AF13C15620008B72DB /* SampleTests.m */; };
-		76FE87B813C1593E008B72DB /* Sample.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C6E59F13C0F40C002D069C /* Sample.m */; };
+		76FE87AE13C15620008B72DB /* JDQueueTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 76FE87AD13C15620008B72DB /* JDQueueTests.h */; };
+		76FE87B013C15620008B72DB /* JDQueueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FE87AF13C15620008B72DB /* JDQueueTests.m */; };
 		76FE87BA13C18CB8008B72DB /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76FE87B913C18CB8008B72DB /* Accelerate.framework */; };
 /* End PBXBuildFile section */
 
@@ -60,6 +61,8 @@
 		7671E82213CB6D7B001920A7 /* Note.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Note.m; sourceTree = "<group>"; };
 		769F4B6113AE902800384C14 /* MosaicTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MosaicTexture.png; sourceTree = "<group>"; };
 		769F4B8013AEBF0400384C14 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/AudioToolbox.framework; sourceTree = DEVELOPER_DIR; };
+		76B2B28D13CCB2AE00E27B2B /* JDQueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JDQueue.h; sourceTree = "<group>"; };
+		76B2B28E13CCB2AE00E27B2B /* JDQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JDQueue.m; sourceTree = "<group>"; };
 		76C6E59E13C0F40C002D069C /* Sample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sample.h; sourceTree = "<group>"; };
 		76C6E59F13C0F40C002D069C /* Sample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sample.m; sourceTree = "<group>"; };
 		76C6E5A213C0FC62002D069C /* BoardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BoardView.m; sourceTree = "<group>"; };
@@ -68,8 +71,8 @@
 		76FE87A813C15620008B72DB /* SampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SampleTests-Info.plist"; sourceTree = "<group>"; };
 		76FE87AA13C15620008B72DB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		76FE87AC13C15620008B72DB /* SampleTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SampleTests-Prefix.pch"; sourceTree = "<group>"; };
-		76FE87AD13C15620008B72DB /* SampleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SampleTests.h; sourceTree = "<group>"; };
-		76FE87AF13C15620008B72DB /* SampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SampleTests.m; sourceTree = "<group>"; };
+		76FE87AD13C15620008B72DB /* JDQueueTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JDQueueTests.h; sourceTree = "<group>"; };
+		76FE87AF13C15620008B72DB /* JDQueueTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JDQueueTests.m; sourceTree = "<group>"; };
 		76FE87B913C18CB8008B72DB /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.3.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
@@ -183,6 +186,8 @@
 				7613F0E313C803F6007C4AC8 /* AudioUnit.m */,
 				7671E82113CB6D7B001920A7 /* Note.h */,
 				7671E82213CB6D7B001920A7 /* Note.m */,
+				76B2B28D13CCB2AE00E27B2B /* JDQueue.h */,
+				76B2B28E13CCB2AE00E27B2B /* JDQueue.m */,
 			);
 			name = ToneKit;
 			sourceTree = "<group>";
@@ -190,8 +195,8 @@
 		76FE87A613C15620008B72DB /* SampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				76FE87AD13C15620008B72DB /* SampleTests.h */,
-				76FE87AF13C15620008B72DB /* SampleTests.m */,
+				76FE87AD13C15620008B72DB /* JDQueueTests.h */,
+				76FE87AF13C15620008B72DB /* JDQueueTests.m */,
 				76FE87A713C15620008B72DB /* Supporting Files */,
 			);
 			path = SampleTests;
@@ -286,7 +291,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76FE87AB13C15620008B72DB /* InfoPlist.strings in Resources */,
-				76FE87AE13C15620008B72DB /* SampleTests.h in Resources */,
+				76FE87AE13C15620008B72DB /* JDQueueTests.h in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +327,7 @@
 				76C6E5A413C0FC62002D069C /* BoardView.m in Sources */,
 				7613F0E413C803F6007C4AC8 /* AudioUnit.m in Sources */,
 				7671E82313CB6D7B001920A7 /* Note.m in Sources */,
+				76B2B28F13CCB2AE00E27B2B /* JDQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,8 +335,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76FE87B813C1593E008B72DB /* Sample.m in Sources */,
-				76FE87B013C15620008B72DB /* SampleTests.m in Sources */,
+				76FE87B013C15620008B72DB /* JDQueueTests.m in Sources */,
+				76B2B29013CCBE0400E27B2B /* JDQueue.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,7 +467,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				VALID_ARCHS = armv7;
+				VALID_ARCHS = "i386 armv7";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
@@ -490,7 +496,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				VALID_ARCHS = armv7;
+				VALID_ARCHS = "i386 armv7";
 				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;

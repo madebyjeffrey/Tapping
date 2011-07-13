@@ -17,7 +17,7 @@
 @implementation BoardView (Events)
 
 - (int) insideButton: (CGPoint) p {
-    CGPoint test = p;
+    CGPoint test;
     int i = 0;
     
     for (CAShapeLayer *shape in self.slices) {

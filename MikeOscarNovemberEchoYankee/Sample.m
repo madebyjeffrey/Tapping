@@ -8,10 +8,18 @@
 
 #import "Sample.h"
 
+/* 
+ 
+ Update to limit access to low level fields to specific methods.
+ Then get everyone else to use those methods for everything else.
+ 
+ */
+ 
+ 
 
 @implementation Sample
 
-- (Sample*) multiplyBy: (Sample*) sample {
+/*- (Sample*) multiplyBy: (Sample*) sample {
     // returns self
     
     if (sample.count != self.count) {
@@ -27,7 +35,7 @@
     vDSP_vmul(self->buffer, 1, sample->buffer, 1, self->buffer, 1, [self count]);
     
     return self;
-}
+}*/
 
 - (Sample*) fill: (float) sample {
     if (!buffer) return self;
@@ -103,7 +111,7 @@
 - (Sample*) dequeue: (size_t) count error: (NSError**) error {
 
     // Test 1: Do we have the samples
-    if (self.count < count) {
+    if ([self count] < count) {
         if (error) { 
             
             // We do not have the samples
@@ -131,7 +139,7 @@
     NSAssert(buffer != NULL, @"Structure not allocated");
     NSAssert(samples != NULL, @"destination is not allocated");
     
-    if (self.count < count) {
+    if ([self count] < count) {
         if (error) { 
             
             // We do not have the samples
