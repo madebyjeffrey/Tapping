@@ -1,82 +1,124 @@
 //
-//  SampleTests.m
-//  SampleTests
+//  JDQueueTests.m
+//  JDQueueTests
 //
 //  Created by Jeffrey Drake on 11-07-03.
 //  Copyright 2011 N/A. All rights reserved.
 //
 
-#import "SampleTests.h"
+#import "JDQueueTests.h"
 
 //#include <arm_neon.h>
 
-@implementation SampleTests
+@interface JDQueue (Testing)
+
+@property (readonly) TYPE *location;
+
+@end
+
+@implementation JDQueue (Testing)
+
+@dynamic location;
+
+- (TYPE*) location {
+    return location;
+}
+
+@end
+
+@implementation JDQueueTests
 
 - (void)setUp
 {
     [super setUp];
     
-    // Set-up code here.
-   // sample1 = [[Sample alloc] initWithCapacity: 50];
-    
 }
 
 - (void)tearDown
 {
-    // Tear-down code here.
-   // [sample1 release];
-    
+
     [super tearDown];
 }
 
-- (void)testMultiply
-{
-    float inputX[4] = { 2, 4, 8, 16 };
-    float inputY[4] = { 2, 4, 8, 16 };
-    
-    Sample *sampleX = [Sample sampleWithCapacity: 4];
-    Sample *sampleY = [Sample sampleWithCapacity: 4];
-    
-    [sampleX enqueueSamples: inputX count: 4];
-    [sampleY enqueueSamples: inputY count: 4];
-    
-    [sampleY multiplyBy: sampleX];
-    
-    [sampleY dequeueSamples: inputY count: 4];
-    
-    NSLog(@"Result: %f, %f, %f, %f", inputY[0], inputY[1],inputY[2],inputY[3]);
-    
-          
-//    float n = 1;
-//    [sample1 importFloats: &n count: 1];
-    
-    STAssertTrue(YES, @"Multiplication Test all results should be 1.0");
-//    STFail(@"Unit tests are not implemented yet in SampleTests");
-}
-/*
-- (void)testNEON
-{
-    float inputX[4] = { 2, 4, 8, 16 };
-    float inputY[4] = { 2, 4, 8, 16 };
-    float resultZ[4] = { 0, 0, 0, 0 };
-    
-    float32x4_t sample1, sample2, result;
-    
-    sample1 = vld1q_f32(inputX);
-    sample2 = vld1q_f32(inputY);
-    
-    result = vmulq_f32(sample1, sample2);
-    
-    vst1q_f32(resultZ, result);
+/* Test Basic Set */
 
-        // vmulq_f32  float32x4_t   float32x4x2_t vld2q_f32(__transfersize(8) float32_t const * ptr); 
-    
-//    catlas_saxpby(4, 1, inputX, 1, 1, inputY, 1);
-    
-    NSLog(@"Result: %f, %f, %f, %f", resultZ[0], resultZ[1], resultZ[2], resultZ[3]);
-    
-    STAssertTrue(YES, @"Testing for initial sample being empty");    
 
+
+// Comment Format
+// Test	                          { starting } -> { queue } / {dequeued}	       Result (Success)
+
+// Enqueue 0                      { }  -> { }	                                   YES
+
+- (void) testEnqueue0 {
+    JDQueue *q = [[JDQueue alloc] initWithCapacity: 10];
+    
+    float n = 5;
+    
+    BOOL result = [q enqueue: &n count: 0];
+    
+    STAssertTrue(result &&          // result good
+                 (q.count == 0),    // size is 0
+                 @"size of queue is %d should be 0", q.count); 
+    
 }
-*/
+
+// Enqueue 1                      { } -> { 1 }                                     YES
+
+- (void) testEnqueue1 {
+    JDQueue *q = [[JDQueue alloc] initWithCapacity: 10];
+    
+    float n = 1;
+    
+    BOOL result = [q enqueue: &n count: 1];
+    
+    STAssertTrue(result &&          // result good
+                 (q.count == 1) &&    // size is 1
+                 (q.location[0] == 1), // first entry is 1
+                 @"result is %d, size of queue is %d should be 1, first entry is %f should be 1.0", result, q.count, q.location[0]); 
+    
+}
+
+
+// Enqueue 5                      { } -> { 1 2 3 4 5 }	                           YES
+
+- (void) testEnqueue5 {
+    JDQueue *q = [[JDQueue alloc] initWithCapacity: 10];
+    
+    float n[5] = { 1, 2, 3, 4, 5 };
+    
+    BOOL result = [q enqueue: n count: 5];
+    
+    STAssertTrue(result &&          // result good
+                 (q.count == 5) &&    // size is 1
+                 (q.location[0] == 1) && // entries are 1,2,3,4,5
+                 (q.location[1] == 2) &&
+                 (q.location[2] == 3) &&
+                 (q.location[3] == 4) &&
+                 (q.location[4] == 5),
+                 @"result is %d, size of queue is %d should be 1, entries are is %f, %f, %f, %f, %f should be 1.0, 2.0, 3.0, 4.0, 5.0", 
+                    result, q.count, q.location[0], q.location[1], q.location[2], q.location[3], q.location[4]); 
+    
+}
+
+
+
+// Enqueue 10 with capacity 5     { } -> { }                                       NO
+
+// Dequeue 0 Empty                { }  -> { } /  { }                               YES
+// Dequeue 0 From 1               { 0 } -> { 0 }   /  { }                          YES
+// Dequeue 0 From 5               { 1 2 3 4 5 } -> { 1 2 3 4 5 } / { }             YES
+// Dequeue 0 From 10              { 1 .. 10 } -> { 1 .. 10 } /  { }	               YES
+// Dequeue 1 From Empty           { } -> { } / { }	                               NO
+// Dequeue 1 From 1               { 1 } -> { } / { 1 }                             YES
+// Dequeue 1 From 5               { 1 2 3 4 5 } -> { 2 3 4 5 } / { 1 }	           YES
+// Dequeue 1 From 10              { 1 2 3 4 5 6 7 8 9 10 } -> { 2 .. 10 } / { 1 }  YES
+// Dequeue 5 From Empty           { } -> { } / { }                                 NO
+// Dequeue 5 From 1               { 1 } -> { 1 } / { }                             NO
+// Dequeue 5 From 5               { 1 2 3 4 5 } -> { } / { 1 2 3 4 5 }             YES
+// Dequeue 5 From 6               { 1 2 3 4 5 6 } -> { 6 } / { 1 2 3 4 5 }         YES
+// Dequeue 5 From 10              { 1 .. 10 } -> { 6 .. 10 } / { 1 .. 5 }          YES
+
+
+
+
 @end
