@@ -15,7 +15,7 @@
 
 + (id) noteWithFrequency: (double) frequency;
 
-@property (retain) Sample *buffer;
+@property (retain) JDQueue *buffer;
 @property (retain) NSThread *thread;
 @property (retain) NSCondition *condition;
 @property (assign) BOOL needsAudio;

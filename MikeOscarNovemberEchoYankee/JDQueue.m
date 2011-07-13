@@ -51,10 +51,13 @@
 
 - (BOOL) dequeue: (TYPE*) items count: (int) length {
     if (length == 0) return YES;  // it is not a failure to dequeue 0 items
-    
+    printf("Taking out %d items\n", length);
     if (tail >= length) {
+        printf("Copy from %p to %p length %d (amount left: %ul)\n", location, items, length * sizeof(TYPE), self.available);
         memcpy(items, location, length * sizeof(TYPE));
-        memmove(location, location + (tail * sizeof(TYPE)), (capacity - length) * sizeof(TYPE));
+        printf("Move from %p to %p length %d\n", location + length * sizeof(TYPE), location, tail - length);
+        memmove(location, location + length * sizeof(TYPE), tail - length);
+//        memmove(location, location + (tail * sizeof(TYPE)), (capacity - length) * sizeof(TYPE));
 //        memcpy(items, location, length);
 //        memmove(location, location + tail, capacity - length); // capacity - length should be amount left, verify
         
@@ -92,6 +95,7 @@
 @end
 
 @interface JDQueue (Extended) 
+
 
 @end
 

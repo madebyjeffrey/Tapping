@@ -16,14 +16,14 @@
 {
     self = [super init];
     if (self) {
-     
-        
-        
     }
     
     return self;
 }
 
+- (void) dealloc {
+    self.buffer = nil;
+}
 
 
 + (id) noteWithFrequency:(double)frequency {
@@ -37,7 +37,7 @@
         note->amplitude = 1;
         note->phaseAngle = 0;
         
-        note.buffer = [Sample sampleWithCapacity: 2048];
+        note.buffer = [[[JDQueue alloc] initWithCapacity: 2048] autorelease];
         
         note.needsAudio = YES;
         note.condition = [[[NSCondition alloc] init] autorelease];
@@ -51,7 +51,15 @@
 }
 
 - (void) fillBuffer: (id) anObject {
+    
     @autoreleasepool {
+//        NSArray *documentsdir = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+  //      NSString *documents = [documentsdir objectAtIndex: 0];
+        
+    //    NSLog(@"%@", documents);
+      //  NSFileHandle *file = [NSFileHandle fileHandleForWritingAtPath: [NSString stringWithFormat: @"%@/sine%d.txt", documents, rand() % 1000]];
+        
+        
         while (![[NSThread currentThread] isCancelled]) {
             [self.condition lock];
             
@@ -59,29 +67,30 @@
                 [self.condition wait];
             }
             
+            
             int samplesNeeded = self.buffer.available;
             
             float *buf = malloc(sizeof(float) * samplesNeeded);
+            
+            printf("Samples needed: %d,  theta: %f   \n", samplesNeeded, theta);
             
             NSAssert(buf != NULL, @"No memory allocated in buffer");
             
             for (size_t frame = 0; frame < samplesNeeded; frame++) {
                 buf[frame] = sin(theta + phaseAngle);
                 
+            //    [file writeData: [NSString stringWithFormat: @"%f\n", buf[frame]]];
+                
+               // printf("%f\n", buf[frame]);
                 theta += deltaTheta;
                 
                 if (theta > (2*M_PI)) theta -= 2 * M_PI;
             }
+
             
-            NSError *error = nil; 
+            printf("Buffer first sample: %f\n", buf[0]);
+            [self.buffer enqueue: buf count: samplesNeeded];
             
-            [self.buffer enqueueSamples: buf count: samplesNeeded error: &error];
-            
-            if (error)
-                NSLog(@"Error: %@", error);
-             
-            
-            //NSLog(@"Render %lu samples from %f to %f", count, theta1, theta2);
             
             free(buf);
             
@@ -89,23 +98,33 @@
              
             [self.condition unlock];
         }
+                 
+          //       [file closeFile];
     }
 }
 
-- (Sample*) renderSamples:(size_t)count {
-    @autoreleasepool {
-        [self.condition lock];
-        
-        Sample *samples = [self.buffer dequeue: count error: nil]; 
-        
-        self.needsAudio = YES;
-        
-        [self.condition signal];
-        [self.condition unlock];
-        
-        return samples;
-    }
-
+- (JDQueue*) renderSamples:(size_t)count {
+    [self.condition lock];
+    
+    float *buf = malloc(count * sizeof(float));
+    
+    [self.buffer dequeue: buf count: count];
+    
+    JDQueue *buf2 = [[JDQueue alloc] initWithCapacity: count];
+    
+    [buf2 enqueue: buf count: count];
+    
+    free(buf);
+    
+//        Sample *samples = [self.buffer dequeue: count error: nil]; 
+    
+    self.needsAudio = YES;
+    
+    [self.condition signal];
+    [self.condition unlock];
+    
+//        return samples;
+    return [buf2 autorelease];
 }
 
 

@@ -9,17 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <AudioUnit/AudioUnit.h>
 
-#import "Sample.h"
+#import "JDQueue.h"
 
 @interface AUAudioUnit : NSObject {
     AudioComponentInstance unit;
 }
-
-@end
-
-@protocol Source
-
-- (Sample*) samples: (size_t) count;
 
 @end
 
@@ -31,7 +25,7 @@
 - (void) initialize;
 - (void) uninitialize;
 
-- (Sample*) renderSamples: (size_t) count;
+- (JDQueue*) renderSamples: (size_t) count;
 
 - (void) play;
 - (void) stop;

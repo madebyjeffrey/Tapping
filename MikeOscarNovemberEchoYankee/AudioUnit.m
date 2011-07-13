@@ -51,19 +51,25 @@ static OSStatus RenderOutput(
             return -1;
         }
   */      
-        Sample *samples = [self renderSamples: inNumberFrames];
+        JDQueue *samples = [self renderSamples: inNumberFrames];
         
-        if ([samples count] < inNumberFrames)
+        if (samples.count < inNumberFrames)
             NSLog(@"Buffer under run!");
 //        samples = [self.source samples: inNumberFrames];             // errors to be caught inside this function
 
-        NSError *error = nil;
+        [samples dequeue: ioData->mBuffers[0].mData count: inNumberFrames];
         
-        [samples dequeueSamples: ioData->mBuffers[0].mData count: [samples count] error: &error];
         
-        if (error) {
-            NSLog(@"Buffer: %@", [error localizedDescription]);
-        }
+//        for (int i = 0; i < inNumberFrames; i++)
+//            printf("%f\n", ((float*)(ioData->mBuffers[0].mData))[i]);
+        
+//        NSError *error = nil;
+        
+  //      [samples dequeueSamples: ioData->mBuffers[0].mData count: [samples count] error: &error];
+        
+//        if (error) {
+  //          NSLog(@"Buffer: %@", [error localizedDescription]);
+    //    }
     }
 
     return noErr;
@@ -169,9 +175,10 @@ static OSStatus RenderOutput(
     return [[[self alloc] init] autorelease];
 }
 
-- (Sample*) renderSamples: (size_t) count {
+- (JDQueue*) renderSamples: (size_t) count {
     // default renders a zero pattern
-    return [[Sample sampleWithCapacity: count] fill: 0.0];
+//    return [[Sample sampleWithCapacity: count] fill: 0.0];
+    return nil;
 }
 
 @end

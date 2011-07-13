@@ -24,7 +24,6 @@
 		769F4B8113AEBF0400384C14 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 769F4B8013AEBF0400384C14 /* AudioToolbox.framework */; };
 		76B2B28F13CCB2AE00E27B2B /* JDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B2B28E13CCB2AE00E27B2B /* JDQueue.m */; };
 		76B2B29013CCBE0400E27B2B /* JDQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B2B28E13CCB2AE00E27B2B /* JDQueue.m */; };
-		76C6E5A013C0F40C002D069C /* Sample.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C6E59F13C0F40C002D069C /* Sample.m */; };
 		76C6E5A413C0FC62002D069C /* BoardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76C6E5A213C0FC62002D069C /* BoardView.m */; };
 		76FE87A313C1561F008B72DB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7609D8C913A6D6C1000C0C7B /* UIKit.framework */; };
 		76FE87A413C15620008B72DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7609D8A913A6D3D0000C0C7B /* Foundation.framework */; };
@@ -323,7 +322,6 @@
 				7609D8C313A6D66E000C0C7B /* BoardController.m in Sources */,
 				7609D8CF13A6ECD6000C0C7B /* Slice.m in Sources */,
 				7609D90213A936A8000C0C7B /* Board-Events.m in Sources */,
-				76C6E5A013C0F40C002D069C /* Sample.m in Sources */,
 				76C6E5A413C0FC62002D069C /* BoardView.m in Sources */,
 				7613F0E413C803F6007C4AC8 /* AudioUnit.m in Sources */,
 				7671E82313CB6D7B001920A7 /* Note.m in Sources */,
