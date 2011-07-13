@@ -42,7 +42,7 @@
 
 - (BOOL) enqueue: (TYPE*) items count: (int) length {
     if (length + tail <= capacity) {
-        bcopy(location + (tail * sizeof(TYPE)), items, length * sizeof(TYPE));
+        memcpy(location + (tail * sizeof(TYPE)), items, length * sizeof(TYPE));
         tail += length;
         return YES;
     }
@@ -53,8 +53,8 @@
     if (length == 0) return YES;  // it is not a failure to dequeue 0 items
     
     if (tail >= length) {
-        bcopy(items, location, length * sizeof(TYPE));
-        bcopy(location, location + (tail * sizeof(TYPE)), (capacity - length) * sizeof(TYPE));
+        memcpy(items, location, length * sizeof(TYPE));
+        memmove(location, location + (tail * sizeof(TYPE)), (capacity - length) * sizeof(TYPE));
 //        memcpy(items, location, length);
 //        memmove(location, location + tail, capacity - length); // capacity - length should be amount left, verify
         
